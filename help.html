@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center | EcoKumari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="help.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="help-body">
+    <!-- Navbar (Simplified) -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🌿</span>
+                <span class="logo-text">EcoKumari</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="help.html" class="active">Help Center</a>
+            </div>
+            <div class="nav-cta">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Help Widget</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="help-hero">
+        <div class="container">
+            <h1>How can we help?</h1>
+            <div class="search-container">
+                <div class="search-box">
+                    <i data-lucide="search"></i>
+                    <input type="text" placeholder="Search for articles, bookings, integrations..." id="helpSearch">
+                    <span class="search-hint">/</span>
+                </div>
+            </div>
+            <div class="popular-searches">
+                <span>Popular:</span>
+                <button class="pill-btn">Booking eco stays</button>
+                <button class="pill-btn">Host verification process</button>
+                <button class="pill-btn">Tribal marketplace payouts</button>
+                <button class="pill-btn">Refund policy</button>
+                <button class="pill-btn">AI itinerary planner</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Grid -->
+    <section class="help-categories">
+        <div class="container">
+            <div class="category-grid">
+                <a href="help-article.html" class="category-card">
+                    <div class="card-icon rocket"><i data-lucide="rocket"></i></div>
+                    <h3>Getting Started</h3>
+                    <p>Learn how to create your account, explore eco destinations, and make your first booking.</p>
+                    <span class="article-count">12 Articles</span>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="card-icon billing"><i data-lucide="credit-card"></i></div>
+                    <h3>Account & Billing</h3>
+                    <p>Manage subscriptions, payments, refunds, and invoices for travelers and organizations.</p>
+                    <span class="article-count">10 Articles</span>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="card-icon projects"><i data-lucide="folder"></i></div>
+                    <h3>Projects & Bookings</h3>
+                    <p>Manage eco stays, lake activities, booking approvals, and itinerary plans.</p>
+                    <span class="article-count">15 Articles</span>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="card-icon team"><i data-lucide="users"></i></div>
+                    <h3>Team & Collaboration</h3>
+                    <p>Manage tourism officers, artisan roles, and workspace permissions.</p>
+                    <span class="article-count">9 Articles</span>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="card-icon settings"><i data-lucide="plug"></i></div>
+                    <h3>Integrations</h3>
+                    <p>Connect Razorpay, Google Maps, SMS gateway, and gov analytics tools.</p>
+                    <span class="article-count">8 Articles</span>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="card-icon troubleshoot"><i data-lucide="wrench"></i></div>
+                    <h3>Troubleshooting</h3>
+                    <p>Resolve booking errors, payment failures, login issues, and performance problems.</p>
+                    <span class="article-count">14 Articles</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Articles -->
+    <section class="popular-articles">
+        <div class="container">
+            <h2 class="section-title">Most Viewed Articles</h2>
+            <div class="article-list">
+                <div class="article-item">
+                    <div class="article-info">
+                        <a href="help-article.html" class="article-title">How to Book a Verified Eco Stay</a>
+                        <span class="category-tag">Getting Started</span>
+                    </div>
+                    <span class="read-time">4 min read</span>
+                </div>
+                <div class="article-item">
+                    <div class="article-info">
+                        <a href="#" class="article-title">Understanding Eco Impact Score</a>
+                        <span class="category-tag">Projects & Bookings</span>
+                    </div>
+                    <span class="read-time">5 min read</span>
+                </div>
+                <div class="article-item">
+                    <div class="article-info">
+                        <a href="#" class="article-title">How Tribal Artisans Receive Payments</a>
+                        <span class="category-tag">Account & Billing</span>
+                    </div>
+                    <span class="read-time">6 min read</span>
+                </div>
+                <div class="article-item">
+                    <div class="article-info">
+                        <a href="#" class="article-title">Setting Up Host Verification</a>
+                        <span class="category-tag">Team & Collaboration</span>
+                    </div>
+                    <span class="read-time">7 min read</span>
+                </div>
+                <div class="article-item">
+                    <div class="article-info">
+                        <a href="#" class="article-title">Connecting Razorpay for Payments</a>
+                        <span class="category-tag">Integrations</span>
+                    </div>
+                    <span class="read-time">3 min read</span>
+                </div>
+                <div class="article-item">
+                    <div class="article-info">
+                        <a href="#" class="article-title">Fixing Booking Confirmation Errors</a>
+                        <span class="category-tag">Troubleshooting</span>
+                    </div>
+                    <span class="read-time">4 min read</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Support -->
+    <section class="contact-support">
+        <div class="container">
+            <div class="support-header">
+                <h2>Can't find what you're looking for?</h2>
+                <p>Our team is here to help you with any platform issues.</p>
+            </div>
+            <div class="support-channels">
+                <div class="channel">
+                    <div class="channel-icon"><i data-lucide="message-circle"></i></div>
+                    <h3>Live Chat</h3>
+                    <p>Available: 9 AM – 6 PM IST</p>
+                    <button class="btn btn-outline btn-sm">Start Chat</button>
+                </div>
+                <div class="channel">
+                    <div class="channel-icon"><i data-lucide="mail"></i></div>
+                    <h3>Email Support</h3>
+                    <p>Response within 24 hours</p>
+                    <a href="mailto:support@ecokumari.in" class="channel-link">support@ecokumari.in</a>
+                </div>
+                <div class="channel">
+                    <div class="channel-icon"><i data-lucide="users"></i></div>
+                    <h3>Community Forum</h3>
+                    <p>Discuss with other users</p>
+                    <button class="btn btn-outline btn-sm">Join Forum</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="help-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <a href="#">Status Page</a>
+                    <a href="#">API Docs</a>
+                    <a href="#">Release Notes</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Community</h4>
+                    <a href="#">Forum</a>
+                    <a href="#">Feedback</a>
+                    <a href="#">Twitter</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+                <div class="footer-col emergency">
+                    <h4>🚨 Emergency Contact</h4>
+                    <p>For critical tourism disruptions:</p>
+                    <a href="tel:+918923456789" class="hotline">📞 +91-8923456789</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EcoKumari. Built for a Sustainable Future.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="help.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

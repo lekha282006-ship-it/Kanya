@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Razorpay Integration | EcoKumari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="integrations.css">
+    <link rel="stylesheet" href="int-detail.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="integrations-body">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo"><span class="logo-icon">🌿</span><span class="logo-text">EcoKumari</span></div>
+            <div class="nav-links">
+                <a href="integrations.html">← Back to Integrations</a>
+            </div>
+            <div class="nav-cta">
+                <a href="settings.html" class="btn btn-outline">Settings</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 3rem; padding-bottom: 6rem;">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="integrations.html">Integrations</a>
+            <i data-lucide="chevron-right"></i>
+            <a href="#">Payments</a>
+            <i data-lucide="chevron-right"></i>
+            <span>Razorpay</span>
+        </nav>
+
+        <div class="detail-layout">
+            <!-- Main Content -->
+            <div class="detail-main">
+                <!-- Header -->
+                <div class="detail-header">
+                    <div class="detail-logo"
+                        style="background:#f1f5ff; font-size:2.5rem; font-weight:900; color:var(--indigo)">₹</div>
+                    <div class="detail-title-block">
+                        <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap;">
+                            <h1>Razorpay</h1>
+                            <span class="badge-official">Official</span>
+                        </div>
+                        <div class="detail-meta">
+                            <span class="cat-tag">Payments</span>
+                            <span>⭐ 4.8 rating</span>
+                            <span><i data-lucide="download" style="width:14px;height:14px;vertical-align:middle;"></i>
+                                12,450 installs</span>
+                        </div>
+                    </div>
+                    <button class="btn-connect btn-lg" id="connectBtn">Connect Razorpay</button>
+                </div>
+
+                <!-- Description -->
+                <div class="detail-section">
+                    <h2>About</h2>
+                    <p>Razorpay enables secure online transactions for eco stay bookings, tribal marketplace sales, and
+                        government tourism payments. It supports UPI, credit/debit cards, wallets, and net banking —
+                        making it the ideal payment partner for EcoKumari's diverse user base across rural and urban
+                        India.</p>
+                </div>
+
+                <!-- Screenshots -->
+                <div class="detail-section">
+                    <h2>Screenshots</h2>
+                    <div class="screenshots-grid">
+                        <div class="screenshot-card">
+                            <div class="screenshot-mock" style="background: linear-gradient(135deg, #6366f1, #818cf8);">
+                                <div style="color:white; text-align:center; padding:2rem;">
+                                    <div style="font-size:2rem; margin-bottom:0.5rem;">₹</div>
+                                    <p style="margin:0; font-size:0.9rem; opacity:0.9;">Booking Checkout</p>
+                                </div>
+                            </div>
+                            <p>Payment flow inside EcoKumari</p>
+                        </div>
+                        <div class="screenshot-card">
+                            <div class="screenshot-mock" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
+                                <div style="color:white; text-align:center; padding:2rem;">
+                                    <i data-lucide="check-circle"
+                                        style="width:48px;height:48px;margin-bottom:0.5rem;"></i>
+                                    <p style="margin:0; font-size:0.9rem;">Payment Success</p>
+                                </div>
+                            </div>
+                            <p>Booking confirmation screen</p>
+                        </div>
+                        <div class="screenshot-card">
+                            <div class="screenshot-mock" style="background: linear-gradient(135deg, #0f172a, #1e293b);">
+                                <div style="color:white; text-align:center; padding:2rem;">
+                                    <i data-lucide="bar-chart-2"
+                                        style="width:48px;height:48px;margin-bottom:0.5rem;"></i>
+                                    <p style="margin:0; font-size:0.9rem;">Payout Dashboard</p>
+                                </div>
+                            </div>
+                            <p>Admin payout overview</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <div class="detail-section">
+                    <h2>Features</h2>
+                    <ul class="features-list">
+                        <li><i data-lucide="check-circle"></i> Secure payment gateway with 256-bit SSL</li>
+                        <li><i data-lucide="check-circle"></i> Automated settlement to host bank accounts</li>
+                        <li><i data-lucide="check-circle"></i> Tribal artisan payout tracking & reconciliation</li>
+                        <li><i data-lucide="check-circle"></i> Refund management for cancelled bookings</li>
+                        <li><i data-lucide="check-circle"></i> GST compliance and automated invoice generation</li>
+                        <li><i data-lucide="check-circle"></i> Webhook support for real-time payment events</li>
+                    </ul>
+                </div>
+
+                <!-- Setup -->
+                <div class="detail-section">
+                    <h2>Setup Instructions</h2>
+                    <ol class="setup-steps">
+                        <li>
+                            <span class="step-num">1</span>
+                            <div>
+                                <strong>Create Razorpay Account</strong>
+                                <p>Visit razorpay.com and register with your business details and PAN number.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="step-num">2</span>
+                            <div>
+                                <strong>Generate API Keys</strong>
+                                <p>Navigate to Settings → API Keys in your Razorpay dashboard and generate a key pair.
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="step-num">3</span>
+                            <div>
+                                <strong>Paste Keys in EcoKumari</strong>
+                                <p>Go to Settings → Integrations → Razorpay and enter your API Key ID and secret.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="step-num">4</span>
+                            <div>
+                                <strong>Enable Webhook</strong>
+                                <p>Configure the webhook URL <code>https://api.ecokumari.in/webhooks/razorpay</code> in
+                                    your Razorpay dashboard.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Requirements -->
+                <div class="detail-section">
+                    <h2>Requirements</h2>
+                    <ul class="req-list">
+                        <li><i data-lucide="circle-dot"></i> Active EcoKumari workspace</li>
+                        <li><i data-lucide="circle-dot"></i> Admin role or higher</li>
+                        <li><i data-lucide="circle-dot"></i> Verified business account on Razorpay</li>
+                    </ul>
+                </div>
+
+                <!-- Reviews -->
+                <div class="detail-section">
+                    <h2>User Reviews</h2>
+                    <div class="review-header">
+                        <div class="big-rating">4.8</div>
+                        <div>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <div style="font-size:0.85rem; color:var(--muted);">Based on 342 reviews</div>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-meta">
+                            <div class="review-avatar">A</div>
+                            <div>
+                                <strong>Anita Sharma</strong>
+                                <div style="font-size:0.75rem; color:var(--muted);">Tourism Officer, Kodaikanal Board
+                                </div>
+                            </div>
+                            <span class="stars" style="margin-left:auto;">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p>"Seamless integration for tribal product sales. The UPI support has been especially useful
+                            for artisans."</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-meta">
+                            <div class="review-avatar" style="background:#f0fdf4; color:#16a34a;">R</div>
+                            <div>
+                                <strong>Rajan Pillai</strong>
+                                <div style="font-size:0.75rem; color:var(--muted);">Eco Host, Munnar</div>
+                            </div>
+                            <span class="stars" style="margin-left:auto;">⭐⭐⭐⭐</span>
+                        </div>
+                        <p>"Setup was easy and payouts reach my account within 2 business days. Works great for eco stay
+                            bookings."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sticky Sidebar -->
+            <aside class="detail-sidebar">
+                <div class="sidebar-action-card">
+                    <button class="btn-connect btn-lg full-width" id="sideConnectBtn">Connect Razorpay</button>
+                    <a href="https://razorpay.com" target="_blank" class="ext-link">Visit razorpay.com <i
+                            data-lucide="external-link"></i></a>
+                </div>
+                <div class="related-section">
+                    <h4>Related Integrations</h4>
+                    <a href="#" class="related-item">
+                        <span>🧾</span><span>Tally</span>
+                    </a>
+                    <a href="#" class="related-item">
+                        <span>💳</span><span>Stripe</span>
+                    </a>
+                    <a href="#" class="related-item">
+                        <span>💰</span><span>PayU</span>
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        document.getElementById('connectBtn').addEventListener('click', function () {
+            this.innerText = '✓ Connected';
+            this.style.background = '#22c55e';
+            document.getElementById('sideConnectBtn').innerText = '✓ Connected';
+            document.getElementById('sideConnectBtn').style.background = '#22c55e';
+        });
+        document.getElementById('sideConnectBtn').addEventListener('click', function () {
+            document.getElementById('connectBtn').click();
+        });
+    </script>
+</body>
+
+</html>

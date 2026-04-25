@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline | EcoKumari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="errors.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="error-body">
+    <div class="error-container">
+        <div class="error-content">
+            <div class="error-illustration">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                    <circle cx="100" cy="100" r="80" fill="#f1f5f9" />
+                    <path d="M60 100 L140 100" stroke="#94a3b8" stroke-width="8" stroke-linecap="round" />
+                    <path d="M70 80 L130 80" stroke="#94a3b8" stroke-width="8" stroke-linecap="round" opacity="0.6" />
+                    <path d="M85 60 L115 60" stroke="#94a3b8" stroke-width="8" stroke-linecap="round" opacity="0.3" />
+                    <path d="M50 50 L150 150" stroke="#ef4444" stroke-width="6" stroke-linecap="round" />
+                </svg>
+            </div>
+            <h1 class="error-title">You’re Offline</h1>
+            <p class="error-message">Check your internet connection and try again to sync with the EcoKumari network.
+            </p>
+
+            <div class="error-actions">
+                <button onclick="window.location.reload()" class="btn-error btn-primary">
+                    <i data-lucide="refresh-cw"></i>
+                    Retry Connection
+                </button>
+            </div>
+
+            <div
+                style="margin-top: 3rem; padding: 1.5rem; background: white; border-radius: 12px; border: 1px solid var(--border);">
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">Cached Content Available</p>
+                <a href="dashboard.html" style="color: var(--indigo); font-size: 0.95rem; text-decoration: none;">View
+                    last saved bookings →</a>
+            </div>
+        </div>
+    </div>
+
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

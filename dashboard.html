@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard – EcoKumari Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { background: hsl(222, 47%, 7%); color: #fff; }
+        
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid rgba(255,255,255,0.05);
+            padding: 2rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+
+        .side-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--emerald);
+        }
+
+        .side-nav { display: flex; flex-direction: column; gap: 0.5rem; }
+        .side-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            color: rgba(255,255,255,0.5);
+            font-weight: 600;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .side-link:hover, .side-link.active {
+            color: #fff;
+            background: rgba(255,255,255,0.05);
+        }
+        .side-link.active { border-left: 3px solid var(--emerald); border-radius: 0 12px 12px 0; background: linear-gradient(to right, rgba(16, 185, 129, 0.1), transparent); }
+
+        /* Main Content */
+        .main-content { padding: 2rem 3rem; }
+
+        .dash-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .profile-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255,255,255,0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 99px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .profile-img { width: 32px; height: 32px; border-radius: 50%; background: var(--emerald); display: flex; align-items: center; justify-content: center; font-weight: 900; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--r-xl);
+            padding: 1.75rem;
+            transition: all 0.3s;
+        }
+        .stat-card:hover { transform: translateY(-5px); border-color: var(--emerald); background: rgba(255,255,255,0.05); }
+        .stat-card h4 { color: rgba(255,255,255,0.5); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+        .stat-card .val { font-size: 1.8rem; font-weight: 800; font-family: 'Outfit'; }
+        .stat-card .trend { font-size: 0.8rem; color: var(--emerald); font-weight: 700; margin-top: 0.5rem; display: flex; align-items: center; gap: 0.25rem; }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .data-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--r-xl);
+            padding: 2rem;
+        }
+
+        .data-card h3 { font-size: 1.25rem; margin-bottom: 1.5rem; }
+
+        .verification-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .verification-row:last-child { border-bottom: none; }
+
+        .badge-pending { background: rgba(251, 191, 36, 0.1); color: #fbbf24; padding: 0.25rem 0.75rem; border-radius: 99px; font-size: 0.75rem; font-weight: 700; }
+
+        @media (max-width: 1100px) {
+            .dashboard-container { grid-template-columns: 1fr; }
+            .sidebar { display: none; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .content-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body class="dashboard-body">
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="side-logo">
+                <span>🌿</span> EcoKumari Hub
+            </div>
+            <nav class="side-nav">
+                <div class="side-link active"><i data-lucide="layout-grid"></i> Dashboard</div>
+                <div class="side-link"><i data-lucide="shield-check"></i> Verifications</div>
+                <div class="side-link"><i data-lucide="shopping-bag"></i> Marketplace</div>
+                <div class="side-link"><i data-lucide="users"></i> Artisans</div>
+                <div class="side-link"><i data-lucide="bar-chart-3"></i> Analytics</div>
+                <div class="side-link"><i data-lucide="settings"></i> Settings</div>
+            </nav>
+        </aside>
+
+        <!-- Main -->
+        <main class="main-content">
+            <header class="dash-header">
+                <div>
+                    <h1 style="font-size: 1.8rem; font-weight: 800;">Welcome, Admin</h1>
+                    <p style="color: rgba(255,255,255,0.5); font-size: 0.9rem;">Monitoring Kanniyakumari's eco-impact in real-time.</p>
+                </div>
+                <div class="profile-badge">
+                    <div class="profile-img">A</div>
+                    <div style="font-size: 0.85rem; font-weight: 700;">Admin User <br><span style="font-weight: 400; opacity: 0.5;">District Officer</span></div>
+                </div>
+            </header>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>Total Revenue</h4>
+                    <div class="val">₹24.8L</div>
+                    <div class="trend"><i data-lucide="arrow-up-right" style="width:14px;"></i> +12.5%</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Eco Score</h4>
+                    <div class="val">98.2</div>
+                    <div class="trend"><i data-lucide="arrow-up-right" style="width:14px;"></i> +0.4%</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Active Stays</h4>
+                    <div class="val">42</div>
+                    <div class="trend" style="color: rgba(255,255,255,0.4);">Verified</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Artisan Network</h4>
+                    <div class="val">128</div>
+                    <div class="trend"><i data-lucide="arrow-up-right" style="width:14px;"></i> +8 New</div>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="data-card">
+                    <h3>Pending Verifications</h3>
+                    <div class="verification-row">
+                        <div>
+                            <div style="font-weight: 700;">Lakeside Mud House</div>
+                            <div style="font-size: 0.8rem; opacity: 0.5;">Pechipparai · Added 2h ago</div>
+                        </div>
+                        <span class="badge-pending">Audit Pending</span>
+                    </div>
+                    <div class="verification-row">
+                        <div>
+                            <div style="font-weight: 700;">Kora Grass Weaver's Co-op</div>
+                            <div style="font-size: 0.8rem; opacity: 0.5;">Muttom · Added 5h ago</div>
+                        </div>
+                        <span class="badge-pending">Audit Pending</span>
+                    </div>
+                    <div class="verification-row">
+                        <div>
+                            <div style="font-weight: 700;">Hillside Eco-Camping</div>
+                            <div style="font-size: 0.8rem; opacity: 0.5;">Western Ghats · Added 1d ago</div>
+                        </div>
+                        <span class="badge-pending">Audit Pending</span>
+                    </div>
+                    <button class="btn btn-ghost" style="width: 100%; margin-top: 1.5rem; justify-content: center;">View All Pending Audits</button>
+                </div>
+
+                <div class="data-card">
+                    <h3>Recent Activity</h3>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div style="display: flex; gap: 1rem;">
+                            <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--emerald); margin-top: 5px;"></div>
+                            <div style="font-size: 0.85rem;">
+                                <strong>$850 Payout</strong> sent to Kavitha M. <br>
+                                <span style="opacity: 0.5;">12 mins ago</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 1rem;">
+                            <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--primary); margin-top: 5px;"></div>
+                            <div style="font-size: 0.85rem;">
+                                <strong>New Review</strong> for Bamboo Cabin <br>
+                                <span style="opacity: 0.5;">1 hour ago</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 1rem;">
+                            <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--emerald); margin-top: 5px;"></div>
+                            <div style="font-size: 0.85rem;">
+                                <strong>Stay Verified:</strong> Sunset Beach <br>
+                                <span style="opacity: 0.5;">3 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

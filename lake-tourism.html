@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lake Tourism – Discover Kanniyakumari's Lakes | EcoKumari</title>
+    <meta name="description"
+        content="Discover and book authentic lake tourism experiences in Kanniyakumari — coracle rides, kayaking, bird watching, and fishing trips.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .lake-hero {
+            position: relative;
+            background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 50%, #064e3b 100%);
+            padding: 6rem 0 5rem;
+            color: #fff;
+            text-align: center;
+            overflow: hidden
+        }
+
+        .lake-hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to top, rgba(15, 23, 42, .8), transparent)
+        }
+
+        .wave-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+            line-height: 0
+        }
+
+        .wave-container svg {
+            display: block;
+            width: 100%
+        }
+
+        .lake-hero h1 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 900;
+            margin-bottom: .75rem;
+            position: relative;
+            z-index: 2
+        }
+
+        .lake-hero p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, .72);
+            max-width: 580px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2
+        }
+
+        .lake-hero-chips {
+            display: flex;
+            justify-content: center;
+            gap: .6rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 2rem
+        }
+
+        .lhc {
+            background: rgba(255, 255, 255, .12);
+            border: 1px solid rgba(255, 255, 255, .2);
+            color: rgba(255, 255, 255, .9);
+            padding: .45rem 1rem;
+            border-radius: 99px;
+            font-size: .82rem;
+            font-weight: 700;
+            backdrop-filter: blur(8px)
+        }
+
+        .lakes-section {
+            padding: 5rem 0;
+            background: #fff
+        }
+
+        .lake-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.75rem
+        }
+
+        .lake-card {
+            border-radius: var(--r-xl);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all .3s;
+            background: #fff
+        }
+
+        .lake-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg)
+        }
+
+        .lc-img {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative
+        }
+
+        .lc1 {
+            background: linear-gradient(135deg, #1e3a5f, #14b8a6)
+        }
+
+        .lc2 {
+            background: linear-gradient(135deg, #064e3b, #22c55e)
+        }
+
+        .lc3 {
+            background: linear-gradient(135deg, #0c4a6e, #38bdf8)
+        }
+
+        .lc-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(255, 255, 255, .9);
+            color: var(--text);
+            font-size: .7rem;
+            font-weight: 900;
+            padding: 4px 10px;
+            border-radius: 99px
+        }
+
+        .lc-body {
+            padding: 1.4rem
+        }
+
+        .lc-body h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: .35rem
+        }
+
+        .lc-body p {
+            font-size: .85rem;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 1rem
+        }
+
+        .lc-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .5rem;
+            margin-bottom: 1rem
+        }
+
+        .lc-det {
+            background: var(--bg);
+            border-radius: 8px;
+            padding: .5rem .75rem;
+            font-size: .78rem
+        }
+
+        .lc-det span {
+            display: block;
+            color: var(--muted);
+            font-size: .7rem
+        }
+
+        .lc-det strong {
+            font-weight: 800
+        }
+
+        .lc-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .lc-price {
+            font-size: 1.05rem;
+            font-weight: 900
+        }
+
+        .lc-price small {
+            font-size: .75rem;
+            color: var(--muted);
+            font-weight: 500
+        }
+
+        .book-activity-btn {
+            background: linear-gradient(135deg, #1e3a5f, #14b8a6);
+            color: #fff;
+            border: none;
+            padding: .55rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: .82rem;
+            cursor: pointer;
+            transition: all .2s
+        }
+
+        .book-activity-btn:hover {
+            opacity: .88;
+            transform: translateY(-1px)
+        }
+
+        .activities-section {
+            padding: 5rem 0;
+            background: var(--bg)
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem
+        }
+
+        .act-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            padding: 1.5rem;
+            transition: all .3s;
+            cursor: pointer
+        }
+
+        .act-card:hover {
+            border-color: var(--teal);
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-3px)
+        }
+
+        .act-icon {
+            font-size: 2.2rem;
+            margin-bottom: .85rem
+        }
+
+        .act-card h4 {
+            font-size: .95rem;
+            font-weight: 800;
+            margin-bottom: .4rem
+        }
+
+        .act-card p {
+            font-size: .82rem;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: .75rem
+        }
+
+        .act-meta {
+            display: flex;
+            gap: .75rem;
+            font-size: .75rem;
+            color: var(--muted)
+        }
+
+        .act-meta span {
+            display: flex;
+            align-items: center;
+            gap: .25rem
+        }
+
+        .guide-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #0f172a, #1e3a5f)
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem
+        }
+
+        .guide-card {
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: var(--r-xl);
+            padding: 1.5rem;
+            color: #fff;
+            text-align: center;
+            transition: all .3s
+        }
+
+        .guide-card:hover {
+            background: rgba(255, 255, 255, .14)
+        }
+
+        .guide-avi {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            font-size: 2.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid rgba(255, 255, 255, .2)
+        }
+
+        .guide-card h4 {
+            font-size: .95rem;
+            font-weight: 900;
+            margin-bottom: .25rem
+        }
+
+        .guide-card .gloc {
+            font-size: .78rem;
+            color: rgba(255, 255, 255, .55);
+            margin-bottom: .6rem
+        }
+
+        .guide-card .gskills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: .35rem;
+            margin-bottom: 1rem
+        }
+
+        .gskill {
+            font-size: .68rem;
+            font-weight: 700;
+            background: rgba(255, 255, 255, .12);
+            color: rgba(255, 255, 255, .8);
+            padding: 3px 8px;
+            border-radius: 99px
+        }
+
+        .guide-card .grating {
+            font-size: .85rem;
+            margin-bottom: 1rem
+        }
+
+        .hire-btn {
+            background: #14b8a6;
+            color: #fff;
+            border: none;
+            padding: .55rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: .8rem;
+            cursor: pointer;
+            transition: all .2s
+        }
+
+        .hire-btn:hover {
+            background: #0d9488
+        }
+
+        .conservation {
+            padding: 5rem 0;
+            background: #fff
+        }
+
+        .cons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center
+        }
+
+        .cons-points {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 1.5rem
+        }
+
+        .cons-point {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start
+        }
+
+        .cons-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            margin-top: .15rem
+        }
+
+        .cons-point h4 {
+            font-size: .95rem;
+            font-weight: 800;
+            margin-bottom: .25rem
+        }
+
+        .cons-point p {
+            font-size: .85rem;
+            color: var(--muted);
+            line-height: 1.6
+        }
+
+        .cons-visual {
+            background: linear-gradient(135deg, #064e3b, #14b8a6);
+            border-radius: var(--r-xl);
+            padding: 2.5rem;
+            color: #fff;
+            text-align: center
+        }
+
+        .cons-visual .cnum {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #86efac;
+            display: block
+        }
+
+        .cons-visual p {
+            font-size: .88rem;
+            color: rgba(255, 255, 255, .75);
+            line-height: 1.6;
+            margin-top: .5rem
+        }
+
+        .modal-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .55);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center
+        }
+
+        .modal-backdrop.open {
+            display: flex
+        }
+
+        .modal-box {
+            background: #fff;
+            border-radius: var(--r-xl);
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 460px;
+            position: relative;
+            margin: 1rem;
+            box-shadow: var(--shadow-xl)
+        }
+
+        .mc {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            color: var(--muted)
+        }
+
+        .modal-box h3 {
+            font-size: 1.15rem;
+            font-weight: 900;
+            margin-bottom: .25rem
+        }
+
+        .msub {
+            font-size: .83rem;
+            color: var(--muted);
+            margin-bottom: 1.5rem
+        }
+
+        .fg {
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+            margin-bottom: .85rem
+        }
+
+        .fg label {
+            font-size: .75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            color: var(--text)
+        }
+
+        .fg input,
+        .fg select {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: .7rem 1rem;
+            font-size: .9rem;
+            font-family: inherit;
+            outline: none;
+            transition: border .2s
+        }
+
+        .fg input:focus,
+        .fg select:focus {
+            border-color: var(--teal)
+        }
+
+        .mrow {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem
+        }
+
+        .mtotal {
+            background: #ccfbf1;
+            border-radius: 8px;
+            padding: .85rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            margin: .85rem 0;
+            font-weight: 900;
+            color: #0f766e
+        }
+
+        .msub-btn {
+            width: 100%;
+            padding: .95rem;
+            background: linear-gradient(135deg, #1e3a5f, #14b8a6);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-weight: 900;
+            font-size: .95rem;
+            cursor: pointer;
+            transition: all .2s;
+            margin-top: .25rem
+        }
+
+        .msub-btn:hover {
+            opacity: .88
+        }
+
+        @media(max-width:900px) {
+
+            .lake-cards,
+            .activity-grid,
+            .guide-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .cons-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media(max-width:600px) {
+
+            .lake-cards,
+            .activity-grid,
+            .guide-grid {
+                grid-template-columns: 1fr
+            }
+
+            .mrow {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo"><span class="logo-leaf">🌿</span><span
+                    class="logo-text">EcoKumari</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="stays.html">Eco Stays</a>
+                <a href="marketplace.html">Marketplace</a>
+                <a href="lake-tourism.html" class="active">Lake Tourism</a>
+                <a href="pricing.html">Pricing</a>
+            </div>
+            <div class="nav-cta">
+                <a href="login.html" class="btn btn-ghost">Login</a>
+                <a href="signup.html" class="btn btn-hero-cta">Sign Up Free</a>
+            </div>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="lake-hero">
+        <div class="container">
+            <div class="section-tag light">🌊 Lake Tourism</div>
+            <h1>Explore Kanniyakumari's<br><span class="gradient-text">Pristine Lake Ecosystem</span></h1>
+            <p>Coracle rides at sunrise, fishing with local communities, wetland conservation walks — now bookable
+                online for the first time.</p>
+            <div class="lake-hero-chips">
+                <span class="lhc">🚣 Coracle Rides</span>
+                <span class="lhc">🐟 Community Fishing</span>
+                <span class="lhc">🌅 Sunrise Kayaking</span>
+                <span class="lhc">🦅 Bird Watching</span>
+                <span class="lhc">📸 Photography Trails</span>
+                <span class="lhc">🌿 Wetland Walks</span>
+            </div>
+            <a href="#lakes" class="btn btn-white-outline btn-lg"
+                onclick="document.getElementById('lakes').scrollIntoView({behavior:'smooth'});return false;">Discover
+                Our Lakes</a>
+        </div>
+        <div class="wave-container">
+            <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path d="M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,40 L1440,80 L0,80 Z" fill="#fff" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- Lakes -->
+    <section class="lakes-section" id="lakes">
+        <div class="container">
+            <div class="section-tag">Featured Lakes</div>
+            <h2 class="section-heading">3 Breathtaking <span class="gradient-text">Lake Destinations</span></h2>
+            <p class="section-sub">Each lake offers a unique eco-tourism experience — carefully managed to protect local
+                biodiversity.</p>
+            <div class="lake-cards">
+
+                <div class="lake-card">
+                    <div class="lc-img lc1"><span>🌅</span>
+                        <div class="lc-badge">🔥 Most Popular</div>
+                    </div>
+                    <div class="lc-body">
+                        <h3>Pechiparai Reservoir</h3>
+                        <p>Surrounded by dense forests and hills, this iconic reservoir is home to coracle rides,
+                            migratory birds, and stunning sunrise views.</p>
+                        <div class="lc-details">
+                            <div class="lc-det"><span>Area</span><strong>132 sq km</strong></div>
+                            <div class="lc-det"><span>Best Season</span><strong>Oct – Mar</strong></div>
+                            <div class="lc-det"><span>Activities</span><strong>6 Available</strong></div>
+                            <div class="lc-det"><span>Distance</span><strong>52 km from KK</strong></div>
+                        </div>
+                        <div class="lc-foot">
+                            <div class="lc-price">₹350 <small>/person</small></div>
+                            <button class="book-activity-btn" data-lake="Pechiparai Reservoir" data-price="350">Book
+                                Experience</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lake-card">
+                    <div class="lc-img lc2"><span>🚣</span>
+                        <div class="lc-badge">🌿 Eco Certified</div>
+                    </div>
+                    <div class="lc-body">
+                        <h3>Chittar Dam &amp; Wetland</h3>
+                        <p>A tranquil backwater ecosystem with rich birdlife. Join local fishermen for authentic
+                            community fishing experiences and wetland walks.</p>
+                        <div class="lc-details">
+                            <div class="lc-det"><span>Area</span><strong>28 sq km</strong></div>
+                            <div class="lc-det"><span>Best Season</span><strong>Aug – Feb</strong></div>
+                            <div class="lc-det"><span>Activities</span><strong>4 Available</strong></div>
+                            <div class="lc-det"><span>Distance</span><strong>38 km from KK</strong></div>
+                        </div>
+                        <div class="lc-foot">
+                            <div class="lc-price">₹280 <small>/person</small></div>
+                            <button class="book-activity-btn" data-lake="Chittar Dam Wetland" data-price="280">Book
+                                Experience</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lake-card">
+                    <div class="lc-img lc3"><span>🦅</span>
+                        <div class="lc-badge">🐦 Bird Sanctuary</div>
+                    </div>
+                    <div class="lc-body">
+                        <h3>Vellimalai Lake &amp; Reserve</h3>
+                        <p>A hidden gem with mangrove patches, rare migratory birds, and guided photography trails. A
+                            photographer's paradise.</p>
+                        <div class="lc-details">
+                            <div class="lc-det"><span>Area</span><strong>14 sq km</strong></div>
+                            <div class="lc-det"><span>Best Season</span><strong>Nov – Jan</strong></div>
+                            <div class="lc-det"><span>Activities</span><strong>3 Available</strong></div>
+                            <div class="lc-det"><span>Distance</span><strong>12 km from KK</strong></div>
+                        </div>
+                        <div class="lc-foot">
+                            <div class="lc-price">₹450 <small>/person</small></div>
+                            <button class="book-activity-btn" data-lake="Vellimalai Lake" data-price="450">Book
+                                Experience</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities -->
+    <section class="activities-section">
+        <div class="container">
+            <div class="section-tag">All Activities</div>
+            <h2 class="section-heading">What You Can <span class="gradient-text">Experience</span></h2>
+            <p class="section-sub">All activities are guided by certified local experts and follow strict Leave No Trace
+                principles.</p>
+            <div class="activity-grid">
+                <div class="act-card">
+                    <div class="act-icon">🚣</div>
+                    <h4>Traditional Coracle Ride</h4>
+                    <p>Glide across the reservoir in a hand-woven circular coracle guided by local fishermen — a
+                        timeless Kanniyakumari experience.</p>
+                    <div class="act-meta"><span>⏱️ 45 min</span><span>👥 1–4 people</span><span>₹350/person</span></div>
+                </div>
+                <div class="act-card">
+                    <div class="act-icon">🌅</div>
+                    <h4>Sunrise Kayaking</h4>
+                    <p>Paddle through glassy waters as the sun rises over the Eastern Ghats. Guided route with wildlife
+                        stops along the way.</p>
+                    <div class="act-meta"><span>⏱️ 2 hrs</span><span>👥 2–6 people</span><span>₹600/person</span></div>
+                </div>
+                <div class="act-card">
+                    <div class="act-icon">🐟</div>
+                    <h4>Community Fishing Trip</h4>
+                    <p>Join local fishermen for a traditional fishing experience using ancient techniques. Learn and
+                        contribute to the catch.</p>
+                    <div class="act-meta"><span>⏱️ 3 hrs</span><span>👥 2–8 people</span><span>₹480/person</span></div>
+                </div>
+                <div class="act-card">
+                    <div class="act-icon">🦅</div>
+                    <h4>Bird Watching Tour</h4>
+                    <p>Spot over 180 species including flamingos, egrets, and rare Irrawaddy dolphins. Expert
+                        ornitologist guide included.</p>
+                    <div class="act-meta"><span>⏱️ 3 hrs</span><span>👥 2–10 people</span><span>₹400/person</span></div>
+                </div>
+                <div class="act-card">
+                    <div class="act-icon">📸</div>
+                    <h4>Photography Trail</h4>
+                    <p>Guided photography walk through mangroves, wetlands, and viewpoints. Best for golden hour and
+                        wildlife shots.</p>
+                    <div class="act-meta"><span>⏱️ 4 hrs</span><span>👥 2–6 people</span><span>₹550/person</span></div>
+                </div>
+                <div class="act-card">
+                    <div class="act-icon">🌿</div>
+                    <h4>Wetland Conservation Walk</h4>
+                    <p>Join local conservationists for an educational wetland walk. Plant a mangrove seedling as part of
+                        our restoration program.</p>
+                    <div class="act-meta"><span>⏱️ 2 hrs</span><span>👥 4–15 people</span><span>₹250/person</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Guides -->
+    <section class="guide-section">
+        <div class="container">
+            <div style="text-align:center;margin-bottom:3rem">
+                <div class="section-tag light">Local Experts</div>
+                <h2 class="section-heading white">Meet Your <span class="gradient-text-light">Certified Guides</span>
+                </h2>
+                <p class="section-sub white">Community-trained, government-certified local guides who know every corner
+                    of Kanniyakumari's lakes.</p>
+            </div>
+            <div class="guide-grid">
+                <div class="guide-card">
+                    <div class="guide-avi">🧔</div>
+                    <h4>Ravi Kumaran</h4>
+                    <div class="gloc">📍 Pechiparai · 14 yrs experience</div>
+                    <div class="gskills"><span class="gskill">Coracle</span><span class="gskill">Fishing</span><span
+                            class="gskill">Bird Watching</span></div>
+                    <div class="grating">⭐ 4.9 (248 trips)</div>
+                    <button class="hire-btn">Book Ravi</button>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-avi">👩</div>
+                    <h4>Preethi Selvaraj</h4>
+                    <div class="gloc">📍 Vellimalai · 9 yrs experience</div>
+                    <div class="gskills"><span class="gskill">Photography</span><span class="gskill">Ecology</span><span
+                            class="gskill">Kayaking</span></div>
+                    <div class="grating">⭐ 5.0 (132 trips)</div>
+                    <button class="hire-btn">Book Preethi</button>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-avi">🧑</div>
+                    <h4>Annamalai S.</h4>
+                    <div class="gloc">📍 Chittar · 18 yrs experience</div>
+                    <div class="gskills"><span class="gskill">Wetlands</span><span
+                            class="gskill">Conservation</span><span class="gskill">Fishing</span></div>
+                    <div class="grating">⭐ 4.8 (311 trips)</div>
+                    <button class="hire-btn">Book Annamalai</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conservation -->
+    <section class="conservation">
+        <div class="container">
+            <div class="cons-grid">
+                <div>
+                    <div class="section-tag">Our Commitment</div>
+                    <h2 class="section-heading">We Protect What <span class="gradient-text">We Share</span></h2>
+                    <p class="section-sub">Every booking contributes to our Lake Conservation Fund — directly protecting
+                        the ecosystem you explore.</p>
+                    <div class="cons-points">
+                        <div class="cons-point"><span class="cons-icon">🌿</span>
+                            <div>
+                                <h4>₹50 per booking to Conservation Fund</h4>
+                                <p>Goes directly to mangrove restoration and wetland monitoring programs run by local
+                                    communities.</p>
+                            </div>
+                        </div>
+                        <div class="cons-point"><span class="cons-icon">🚫</span>
+                            <div>
+                                <h4>Strict Visitor Capacity Limits</h4>
+                                <p>Max 15 visitors per lake per activity slot to prevent ecological stress and ensure
+                                    quality experience.</p>
+                            </div>
+                        </div>
+                        <div class="cons-point"><span class="cons-icon">♻️</span>
+                            <div>
+                                <h4>Zero Single-Use Plastic Policy</h4>
+                                <p>All activities are completely plastic-free. Bamboo water bottles and reusable gear
+                                    provided.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cons-visual">
+                    <span class="cnum">7,200+</span>
+                    <p>Mangrove seedlings planted by EcoKumari tourists and local communities since our launch.</p>
+                    <div style="margin-top:2rem;display:flex;flex-direction:column;gap:.85rem">
+                        <div style="background:rgba(255,255,255,.1);border-radius:10px;padding:1rem;text-align:left">
+                            <div style="font-size:.8rem;color:rgba(255,255,255,.6);margin-bottom:.3rem">Lake Water
+                                Quality Index</div>
+                            <div style="background:rgba(255,255,255,.15);border-radius:99px;height:8px;overflow:hidden">
+                                <div style="background:#86efac;width:92%;height:100%;border-radius:99px"></div>
+                            </div>
+                            <div style="font-size:.78rem;color:#86efac;font-weight:800;margin-top:.3rem">92/100 —
+                                Excellent</div>
+                        </div>
+                        <div style="background:rgba(255,255,255,.1);border-radius:10px;padding:1rem;text-align:left">
+                            <div style="font-size:.8rem;color:rgba(255,255,255,.6);margin-bottom:.3rem">Biodiversity
+                                Score</div>
+                            <div style="background:rgba(255,255,255,.15);border-radius:99px;height:8px;overflow:hidden">
+                                <div style="background:#67e8f9;width:88%;height:100%;border-radius:99px"></div>
+                            </div>
+                            <div style="font-size:.78rem;color:#67e8f9;font-weight:800;margin-top:.3rem">88/100 — Very
+                                Rich</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="modal-backdrop" id="activityModal">
+        <div class="modal-box">
+            <button class="mc" id="actModalClose">✕</button>
+            <h3>Book Lake Activity</h3>
+            <p class="msub">Instant confirmation · Free cancellation 24hrs prior</p>
+            <div
+                style="background:linear-gradient(135deg,#1e3a5f,#14b8a6);border-radius:10px;padding:1rem 1.25rem;color:#fff;margin-bottom:1.25rem">
+                <div style="font-size:.85rem;font-weight:800" id="actName">Pechiparai Reservoir Experience</div>
+                <div style="font-size:.78rem;color:rgba(255,255,255,.7)">🌿 Eco Certified · ✅ Govt Approved</div>
+            </div>
+            <div class="fg"><label>Select Activity</label>
+                <select id="actType">
+                    <option>🚣 Coracle Ride (₹350/person)</option>
+                    <option>🌅 Sunrise Kayaking (₹600/person)</option>
+                    <option>🐟 Community Fishing (₹480/person)</option>
+                    <option>🦅 Bird Watching (₹400/person)</option>
+                    <option>📸 Photography Trail (₹550/person)</option>
+                </select>
+            </div>
+            <div class="mrow">
+                <div class="fg"><label>Date</label><input type="date" id="actDate"></div>
+                <div class="fg"><label>No. of Persons</label><select id="actPersons">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5+</option>
+                    </select></div>
+            </div>
+            <div class="fg"><label>Your Name</label><input type="text" placeholder="Full Name"></div>
+            <div class="fg"><label>Mobile</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+            <div class="mtotal"><span>Estimated Total</span><span id="actTotal">₹350</span></div>
+            <button class="msub-btn" onclick="confirmActivity()">🔒 Confirm Booking</button>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom-bar">
+                <p>© 2026 EcoKumari · <a href="index.html" style="color:#86efac">Back to Home</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+        const modal = document.getElementById('activityModal');
+        document.querySelectorAll('.book-activity-btn, .hire-btn, .act-card').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.dataset.lake) document.getElementById('actName').textContent = btn.dataset.lake + ' Experience';
+                modal.classList.add('open');
+                lucide.createIcons();
+            });
+        });
+        document.getElementById('actModalClose').addEventListener('click', () => modal.classList.remove('open'));
+        modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
+        function confirmActivity() {
+            const name = document.querySelector('#activityModal input[type="text"]')?.value;
+            if (!name) { alert('Please enter your name.'); return; }
+            modal.classList.remove('open');
+            const t = document.createElement('div');
+            t.style.cssText = 'position:fixed;bottom:2rem;right:2rem;background:#14b8a6;color:#fff;padding:1rem 1.5rem;border-radius:12px;font-weight:800;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,.2)';
+            t.textContent = '✅ Activity booked! SMS confirmation sent. See you at the lake! 🌊';
+            document.body.appendChild(t); setTimeout(() => t.remove(), 4500);
+        }
+    </script>
+</body>
+
+</html>

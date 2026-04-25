@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's New | EcoKumari</title>
+    <meta name="description"
+        content="Stay updated with the latest features, tourism improvements, and platform updates from EcoKumari.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="changelog.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="changelog-body">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo"><span class="logo-icon">🌿</span><span class="logo-text">EcoKumari</span></div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="help.html">Help</a>
+                <a href="changelog.html" class="active">What's New</a>
+            </div>
+            <div class="nav-cta">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / Header -->
+    <header class="changelog-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-eyebrow"><i data-lucide="sparkles"></i> Platform Updates</div>
+                    <h1>What's New</h1>
+                    <p>Stay updated with the latest features, tourism improvements, and platform updates.</p>
+                </div>
+                <div class="subscribe-card">
+                    <p class="subscribe-label">Get release updates in your inbox</p>
+                    <form class="subscribe-form" id="subscribeForm">
+                        <input type="email" id="subEmail" placeholder="Enter your email for release updates" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <p class="subscribe-micro">We only send important product updates. No spam, ever.</p>
+                </div>
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="feature">✨ Features</button>
+                <button class="filter-btn" data-filter="improvement">🚀 Improvements</button>
+                <button class="filter-btn" data-filter="fix">🐛 Fixes</button>
+                <button class="filter-btn" data-filter="security">🔒 Security</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="changelog-layout container">
+
+        <!-- Timeline -->
+        <main class="timeline-main">
+
+            <!-- Entry 1 -->
+            <article class="release-entry" data-tags="feature improvement fix">
+                <div class="entry-marker">
+                    <div class="marker-dot latest-dot"></div>
+                    <span class="latest-pill">LATEST</span>
+                </div>
+                <div class="release-card">
+                    <div class="release-card-header">
+                        <div class="header-left">
+                            <span class="version-badge">v2.4.0</span>
+                            <span class="release-type-tag major">Major Release</span>
+                        </div>
+                        <span class="release-date"><i data-lucide="calendar"></i> January 15, 2025</span>
+                    </div>
+                    <h2 class="release-title">Tourism Dashboard 2.0 & Advanced Impact Analytics</h2>
+                    <p class="release-summary">This release introduces a redesigned dashboard experience and powerful
+                        analytics tools to help monitor tourism growth and tribal livelihood impact across all
+                        registered destinations.</p>
+
+                    <div class="change-section feature-section" data-type="feature">
+                        <h4><span class="change-icon">✨</span> New Features</h4>
+                        <ul>
+                            <li>Fully redesigned Tourism Admin Dashboard with customizable widget layout</li>
+                            <li>Widgets for bookings, artisan sales, eco impact score, and compliance status</li>
+                            <li>Advanced analytics with custom date range filters and CSV export</li>
+                            <li>Lake visitor heatmap visualization for destination management</li>
+                            <li>Dark mode support across all dashboard screens</li>
+                        </ul>
+                    </div>
+
+                    <div class="change-section improvement-section" data-type="improvement">
+                        <h4><span class="change-icon">🚀</span> Improvements</h4>
+                        <ul>
+                            <li>50% faster page load time across dashboard and reports</li>
+                            <li>Improved search with location-based and artisan-specific filters</li>
+                            <li>Enhanced mobile booking experience with swipe gestures</li>
+                            <li>Simplified host approval workflow — reduced to 3 steps</li>
+                        </ul>
+                    </div>
+
+                    <div class="change-section fix-section" data-type="fix">
+                        <h4><span class="change-icon">🐛</span> Bug Fixes</h4>
+                        <ul>
+                            <li>Fixed delayed booking confirmation notifications in WhatsApp integration</li>
+                            <li>Resolved tribal payout calculation mismatch for artisans with multiple listings</li>
+                            <li>Corrected map pin duplication issue for co-located eco stays</li>
+                        </ul>
+                    </div>
+
+                    <div class="change-section breaking-section">
+                        <h4><span class="change-icon">⚠️</span> Breaking Changes</h4>
+                        <ul>
+                            <li>Legacy reporting endpoints deprecated — please migrate to v2 APIs before March 30, 2025
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Entry 2 -->
+            <article class="release-entry" data-tags="improvement fix">
+                <div class="entry-marker">
+                    <div class="marker-dot"></div>
+                </div>
+                <div class="release-card">
+                    <div class="release-card-header">
+                        <div class="header-left">
+                            <span class="version-badge">v2.3.2</span>
+                            <span class="release-type-tag patch">Patch</span>
+                        </div>
+                        <span class="release-date"><i data-lucide="calendar"></i> January 8, 2025</span>
+                    </div>
+                    <h2 class="release-title">Performance & Stability Update</h2>
+                    <p class="release-summary">Focused on improving reliability and booking performance across rural and
+                        low-connectivity usage scenarios.</p>
+
+                    <div class="change-section improvement-section" data-type="improvement">
+                        <h4><span class="change-icon">🚀</span> Improvements</h4>
+                        <ul>
+                            <li>Optimized eco stay listing page load speed by 35%</li>
+                            <li>Improved search indexing for destinations and nearby tribal markets</li>
+                            <li>Better WhatsApp Business integration stability with retry logic</li>
+                        </ul>
+                    </div>
+
+                    <div class="change-section fix-section" data-type="fix">
+                        <h4><span class="change-icon">🐛</span> Bug Fixes</h4>
+                        <ul>
+                            <li>Fixed artisan profile image upload failure on mobile browsers</li>
+                            <li>Resolved calendar sync errors for hosts using Google Calendar</li>
+                            <li>Corrected invoice PDF formatting for GST-registered businesses</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Entry 3 -->
+            <article class="release-entry" data-tags="feature improvement fix">
+                <div class="entry-marker">
+                    <div class="marker-dot"></div>
+                </div>
+                <div class="release-card">
+                    <div class="release-card-header">
+                        <div class="header-left">
+                            <span class="version-badge">v2.3.0</span>
+                            <span class="release-type-tag minor">Minor Update</span>
+                        </div>
+                        <span class="release-date"><i data-lucide="calendar"></i> December 20, 2024</span>
+                    </div>
+                    <h2 class="release-title">Tribal Marketplace Expansion</h2>
+                    <p class="release-summary">Expanded support for artisan onboarding and marketplace growth, enabling
+                        communities to list, manage, and sell their products with greater ease.</p>
+
+                    <div class="change-section feature-section" data-type="feature">
+                        <h4><span class="change-icon">✨</span> New Features</h4>
+                        <ul>
+                            <li>Bulk product upload for artisans (up to 100 products via CSV)</li>
+                            <li>Multi-language product descriptions — Tamil, Hindi, English</li>
+                            <li>Revenue analytics per artisan with monthly trend charts</li>
+                            <li>UPI payout tracking dashboard for real-time settlement status</li>
+                        </ul>
+                    </div>
+
+                    <div class="change-section improvement-section" data-type="improvement">
+                        <h4><span class="change-icon">🚀</span> Improvements</h4>
+                        <ul>
+                            <li>Improved vendor verification process — down from 7 to 3 days</li>
+                            <li>Faster admin approval system with batch processing support</li>
+                            <li>Simplified GST input format with auto-validation</li>
+                        </ul>
+                    </div>
+
+                    <div class="change-section fix-section" data-type="fix">
+                        <h4><span class="change-icon">🐛</span> Bug Fixes</h4>
+                        <ul>
+                            <li>Fixed payout status update delay in artisan dashboards</li>
+                            <li>Resolved broken product image previews in marketplace listings</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Entry 4 -->
+            <article class="release-entry" data-tags="feature improvement fix">
+                <div class="entry-marker">
+                    <div class="marker-dot"></div>
+                </div>
+                <div class="release-card">
+                    <div class="release-card-header">
+                        <div class="header-left">
+                            <span class="version-badge">v2.2.0</span>
+                            <span class="release-type-tag major">Major Release</span>
+                        </div>
+                        <span class="release-date"><i data-lucide="calendar"></i> November 30, 2024</span>
+                    </div>
+                    <h2 class="release-title">Eco Stay Booking System Launch</h2>
+                    <p class="release-summary">First full release of the eco-tourism booking engine, enabling travelers
+                        to discover, book, and pay for verified eco stays across Kanniyakumari and surrounding regions.
+                    </p>
+
+                    <div class="change-section feature-section" data-type="feature">
+                        <h4><span class="change-icon">✨</span> New Features</h4>
+                        <ul>
+                            <li>Verified eco stay listings with 75-point sustainability audit badge</li>
+                            <li>Real-time availability calendar with instant booking</li>
+                            <li>Secure payment gateway integration (Razorpay UPI & Cards)</li>
+                            <li>Booking confirmation via SMS and email with QR check-in code</li>
+                        </ul>
+                    </div>
+
+                    <div class="change-section improvement-section" data-type="improvement">
+                        <h4><span class="change-icon">🚀</span> Improvements</h4>
+                        <ul>
+                            <li>Improved listing filters — price range, eco rating, amenities, and proximity</li>
+                            <li>Enhanced mobile UI with a streamlined 3-step booking flow</li>
+                        </ul>
+                    </div>
+
+                    <div class="change-section fix-section" data-type="fix">
+                        <h4><span class="change-icon">🐛</span> Bug Fixes</h4>
+                        <ul>
+                            <li>Fixed duplicate booking prevention when sessions overlap</li>
+                            <li>Corrected refund calculation logic for partial-night cancellations</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Hidden older entries -->
+            <article class="release-entry hidden-entry" data-tags="security fix" style="display:none;">
+                <div class="entry-marker">
+                    <div class="marker-dot"></div>
+                </div>
+                <div class="release-card">
+                    <div class="release-card-header">
+                        <div class="header-left">
+                            <span class="version-badge">v2.1.1</span>
+                            <span class="release-type-tag patch">Security Patch</span>
+                        </div>
+                        <span class="release-date"><i data-lucide="calendar"></i> November 10, 2024</span>
+                    </div>
+                    <h2 class="release-title">Critical Security & Data Protection Update</h2>
+                    <p class="release-summary">Addresses multiple security vulnerabilities and improves data protection
+                        for institutional and government users.</p>
+                    <div class="change-section fix-section" data-type="security">
+                        <h4><span class="change-icon">🔒</span> Security</h4>
+                        <ul>
+                            <li>Patched XSS vulnerability in artisan profile editor</li>
+                            <li>Enforced 2FA requirements for Admin and Government roles</li>
+                            <li>Rate limiting applied to booking and payment API endpoints</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Load More -->
+            <div class="load-more-area" id="loadMoreArea">
+                <button class="btn-load-more" id="loadMoreBtn">
+                    <i data-lucide="chevrons-down"></i>
+                    Load More Releases
+                </button>
+            </div>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="changelog-sidebar">
+            <div class="sidebar-widget">
+                <h4>Major Releases</h4>
+                <ul class="release-links">
+                    <li><a href="#"><span class="ver-tag">v2.4.0</span> Dashboard 2.0</a></li>
+                    <li><a href="#"><span class="ver-tag">v2.2.0</span> Booking Engine</a></li>
+                    <li><a href="#"><span class="ver-tag">v2.0.0</span> Platform Launch</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h4>Categories</h4>
+                <ul class="category-links">
+                    <li><a href="#">📊 Dashboard</a></li>
+                    <li><a href="#">🛍 Marketplace</a></li>
+                    <li><a href="#">💳 Payments</a></li>
+                    <li><a href="#">📈 Analytics</a></li>
+                    <li><a href="#">🔒 Security</a></li>
+                    <li><a href="#">📱 Mobile</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget rss-widget">
+                <i data-lucide="rss"></i>
+                <div>
+                    <p>Subscribe via RSS Feed</p>
+                    <a href="#" class="rss-link">ecokumari.in/rss/updates</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="help-footer" style="margin-top: 6rem;">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Platform</h4><a href="#">API Docs</a><a href="#">Status Page</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Community</h4><a href="#">Forum</a><a href="#">Feedback</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4><a href="#">Privacy Policy</a><a href="#">Terms</a>
+                </div>
+                <div class="footer-col emergency">
+                    <h4>🚨 Emergency</h4><a href="tel:+918923456789" class="hotline">📞 +91-8923456789</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EcoKumari. Built for a Sustainable Future.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="changelog.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrations | EcoKumari</title>
+    <meta name="description"
+        content="Connect EcoKumari with the tools powering tourism, payments, and tribal commerce.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="integrations.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="integrations-body">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo"><span class="logo-icon">🌿</span><span class="logo-text">EcoKumari</span></div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="integrations.html" class="active">Integrations</a>
+                <a href="help.html">Help</a>
+            </div>
+            <div class="nav-cta">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="integrations-hero">
+        <div class="container">
+            <div class="hero-text">
+                <h1>Integrations</h1>
+                <p>Connect EcoKumari with the tools powering tourism, payments, and tribal commerce.</p>
+            </div>
+            <div class="hero-search-row">
+                <div class="hero-search-box">
+                    <i data-lucide="search"></i>
+                    <input type="text" id="intSearch" placeholder="Search integrations… (Payments, Maps, Analytics…)">
+                    <span class="search-clear" id="clearSearch" style="display:none;"><i data-lucide="x"></i></span>
+                </div>
+                <button class="btn-request" id="requestIntBtn">+ Request an Integration</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="int-layout container">
+        <!-- Sidebar -->
+        <aside class="int-sidebar">
+            <div class="sidebar-section">
+                <p class="sidebar-label">Categories</p>
+                <ul class="cat-list">
+                    <li class="cat-item active" data-cat="all"><span>All Integrations</span> <span
+                            class="count">38</span></li>
+                    <li class="cat-item" data-cat="payments"><span>Payments</span> <span class="count">6</span></li>
+                    <li class="cat-item" data-cat="communication"><span>Communication</span> <span
+                            class="count">7</span></li>
+                    <li class="cat-item" data-cat="maps"><span>Maps & Location</span> <span class="count">5</span></li>
+                    <li class="cat-item" data-cat="storage"><span>File Storage</span> <span class="count">4</span></li>
+                    <li class="cat-item" data-cat="analytics"><span>Analytics</span> <span class="count">6</span></li>
+                    <li class="cat-item" data-cat="marketing"><span>Marketing</span> <span class="count">5</span></li>
+                    <li class="cat-item" data-cat="government"><span>Govt & Compliance</span> <span
+                            class="count">3</span></li>
+                    <li class="cat-item" data-cat="other"><span>Other</span> <span class="count">2</span></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <p class="sidebar-label">Filter By</p>
+                <label class="filter-check"><input type="checkbox" checked data-filter="free"> Free</label>
+                <label class="filter-check"><input type="checkbox" checked data-filter="premium"> Premium</label>
+                <label class="filter-check"><input type="checkbox" checked data-filter="official"> Official</label>
+                <label class="filter-check"><input type="checkbox" checked data-filter="community"> Community</label>
+            </div>
+
+            <div class="sidebar-section">
+                <p class="sidebar-label">Sort By</p>
+                <select id="sortSelect">
+                    <option value="popular">Most Popular</option>
+                    <option value="newest">Newest</option>
+                    <option value="rating">Highest Rated</option>
+                </select>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="int-main">
+            <!-- Featured -->
+            <section class="featured-section">
+                <h2 class="section-title">⭐ Featured Integrations</h2>
+                <div class="featured-grid">
+                    <a href="integration-detail.html" class="featured-card">
+                        <div class="feat-logo razorpay">₹</div>
+                        <div class="feat-info">
+                            <div class="feat-top">
+                                <h3>Razorpay</h3>
+                                <span class="badge-official">Official</span>
+                            </div>
+                            <p>Accept eco stay and tribal product payments securely. Supports UPI, cards & wallets.</p>
+                            <div class="feat-meta"><i data-lucide="download"></i> 12,450 installs</div>
+                        </div>
+                        <button class="btn-connect">Connect</button>
+                    </a>
+                    <a href="#" class="featured-card">
+                        <div class="feat-logo gmaps">🗺</div>
+                        <div class="feat-info">
+                            <div class="feat-top">
+                                <h3>Google Maps</h3>
+                                <span class="badge-official">Official</span>
+                            </div>
+                            <p>Show eco destinations, lake routes, and tribal village locations on interactive maps.</p>
+                            <div class="feat-meta"><i data-lucide="download"></i> 18,200 installs</div>
+                        </div>
+                        <button class="btn-connect">Connect</button>
+                    </a>
+                    <a href="#" class="featured-card">
+                        <div class="feat-logo whatsapp">💬</div>
+                        <div class="feat-info">
+                            <div class="feat-top">
+                                <h3>WhatsApp Business</h3>
+                                <span class="badge-official">Official</span>
+                            </div>
+                            <p>Send booking confirmations and artisan alerts via WhatsApp Business API.</p>
+                            <div class="feat-meta"><i data-lucide="download"></i> 9,870 installs</div>
+                        </div>
+                        <button class="btn-connect">Connect</button>
+                    </a>
+                    <a href="#" class="featured-card">
+                        <div class="feat-logo ga">📊</div>
+                        <div class="feat-info">
+                            <div class="feat-top">
+                                <h3>Google Analytics</h3>
+                                <span class="badge-official">Official</span>
+                            </div>
+                            <p>Track tourist behavior, booking funnel conversion insights, and traffic analytics.</p>
+                            <div class="feat-meta"><i data-lucide="download"></i> 14,110 installs</div>
+                        </div>
+                        <button class="btn-connect">Connect</button>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Integration Grid -->
+            <section class="all-integrations-section">
+                <div class="grid-header">
+                    <h2 class="section-title">All Integrations</h2>
+                    <span class="grid-count" id="gridCount">38 integrations</span>
+                </div>
+                <div class="int-grid" id="intGrid">
+                    <!-- Cards rendered by JS -->
+                </div>
+
+                <div class="no-results" id="noResults" style="display:none;">
+                    <i data-lucide="search-x"></i>
+                    <p>No integrations found for "<span id="noResultsQuery"></span>"</p>
+                    <button class="btn-request" id="reqFromNoResults">Request this Integration</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Request Integration Modal -->
+    <div class="modal-overlay" id="requestModal" style="display:none;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Request an Integration</h3>
+                <button class="modal-close" id="closeModal"><i data-lucide="x"></i></button>
+            </div>
+            <form id="requestForm">
+                <div class="form-group">
+                    <label>Tool Name</label>
+                    <input type="text" placeholder="e.g., Notion, Stripe, Salesforce" required>
+                </div>
+                <div class="form-group">
+                    <label>Website</label>
+                    <input type="url" placeholder="https://example.com">
+                </div>
+                <div class="form-group">
+                    <label>Use Case</label>
+                    <textarea rows="3" placeholder="How would this help the EcoKumari ecosystem?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Your Email</label>
+                    <input type="email" placeholder="you@ecokumari.in">
+                </div>
+                <button type="submit" class="btn-primary full-width">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="help-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Platform</h4>
+                    <a href="help.html">API Docs</a>
+                    <a href="#">Status Page</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="help.html">Help Center</a>
+                    <a href="#">Community</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-col emergency">
+                    <h4>🚨 Emergency</h4>
+                    <a href="tel:+918923456789" class="hotline">📞 +91-8923456789</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EcoKumari. Built for a Sustainable Future.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="integrations.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

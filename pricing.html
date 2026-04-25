@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | EcoKumari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pricing.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <!-- Navbar (Simplified) -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🌿</span>
+                <span class="logo-text">EcoKumari</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="pricing.html" class="active">Pricing</a>
+            </div>
+            <div class="nav-cta">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signup.html" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="pricing-header">
+        <div class="container">
+            <h1>Simple, Transparent Pricing</h1>
+            <p class="subtitle">Empowering sustainable tourism. No hidden fees. Cancel anytime.</p>
+
+            <div class="toggle-container">
+                <span class="toggle-label" id="monthlyLabel">Monthly</span>
+                <button class="toggle-switch" id="billingToggle">
+                    <span class="toggle-dot"></span>
+                </button>
+                <span class="toggle-label" id="annualLabel">Annual</span>
+                <span class="discount-badge">💰 Save 20% with Annual Billing</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Pricing Cards -->
+    <section class="pricing-cards">
+        <div class="container">
+            <div class="cards-grid">
+                <!-- Free Tier -->
+                <div class="price-card">
+                    <div class="card-header">
+                        <span class="tier-name">Explorer</span>
+                        <div class="price-box">
+                            <span class="currency">₹</span>
+                            <span class="amount">0</span>
+                            <span class="period">/ month</span>
+                        </div>
+                        <p class="tagline">For individual eco travelers</p>
+                    </div>
+                    <ul class="features-list">
+                        <li><i data-lucide="check"></i> Browse eco destinations</li>
+                        <li><i data-lucide="check"></i> Book up to 3 stays/month</li>
+                        <li><i data-lucide="check"></i> Basic eco-impact score</li>
+                        <li><i data-lucide="check"></i> Access tribal marketplace</li>
+                        <li><i data-lucide="check"></i> Email support</li>
+                    </ul>
+                    <a href="signup.html" class="btn btn-outline full-width">Get Started</a>
+                </div>
+
+                <!-- Pro Tier (Most Popular) -->
+                <div class="price-card popular">
+                    <div class="popular-badge">⭐ Most Popular</div>
+                    <div class="card-header">
+                        <span class="tier-name">Eco Pro</span>
+                        <div class="price-box">
+                            <span class="currency">₹</span>
+                            <span class="amount" id="proPrice">999</span>
+                            <span class="period">/ user / month</span>
+                        </div>
+                        <p class="tagline">For conscious travelers & small tour operators</p>
+                    </div>
+                    <ul class="features-list">
+                        <li><i data-lucide="check"></i> Unlimited eco bookings</li>
+                        <li><i data-lucide="check"></i> AI itinerary planner</li>
+                        <li><i data-lucide="check"></i> Advanced eco impact analytics</li>
+                        <li><i data-lucide="check"></i> Priority booking access</li>
+                        <li><i data-lucide="check"></i> 50GB media storage</li>
+                        <li><i data-lucide="check"></i> Advanced reviews & ratings</li>
+                        <li><i data-lucide="check"></i> Custom travel integrations</li>
+                        <li><i data-lucide="check"></i> Priority support</li>
+                    </ul>
+                    <a href="signup.html" class="btn btn-primary full-width">Start Free Trial</a>
+                </div>
+
+                <!-- Enterprise Tier -->
+                <div class="price-card">
+                    <div class="card-header">
+                        <span class="tier-name">Institutional / Govt</span>
+                        <div class="price-box">
+                            <span class="amount">Custom</span>
+                        </div>
+                        <p class="tagline">For tourism boards & large organizations</p>
+                    </div>
+                    <ul class="features-list">
+                        <li><i data-lucide="check"></i> Everything in Eco Pro</li>
+                        <li><i data-lucide="check"></i> Unlimited users</li>
+                        <li><i data-lucide="check"></i> Unlimited storage</li>
+                        <li><i data-lucide="check"></i> Dedicated account manager</li>
+                        <li><i data-lucide="check"></i> SLA guarantee</li>
+                        <li><i data-lucide="check"></i> Custom contracts</li>
+                        <li><i data-lucide="check"></i> SSO / SAML</li>
+                        <li><i data-lucide="check"></i> Tourism analytics dashboard</li>
+                        <li><i data-lucide="check"></i> Tribal onboarding management</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline full-width">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">Feature Comparison</h2>
+            <div class="table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr class="category-header">
+                            <th colspan="4" class="text-left">🌿 Core Features</th>
+                        </tr>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Explorer</th>
+                            <th>Eco Pro</th>
+                            <th>Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Eco Booking</td>
+                            <td>✔</td>
+                            <td>✔</td>
+                            <td>✔</td>
+                        </tr>
+                        <tr>
+                            <td>AI Itinerary</td>
+                            <td class="text-muted">✖</td>
+                            <td>✔</td>
+                            <td>✔</td>
+                        </tr>
+                        <tr>
+                            <td>Eco Impact Score</td>
+                            <td>Basic</td>
+                            <td>Advanced</td>
+                            <td>Advanced</td>
+                        </tr>
+                        <tr>
+                            <td>Tribal Marketplace</td>
+                            <td>✔</td>
+                            <td>✔</td>
+                            <td>✔</td>
+                        </tr>
+
+                        <tr class="category-header">
+                            <th colspan="4" class="text-left">🤝 Collaboration</th>
+                        </tr>
+                        <tr>
+                            <td>Multi-user Access</td>
+                            <td>1</td>
+                            <td>Up to 20</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Admin Dashboard</td>
+                            <td class="text-muted">✖</td>
+                            <td>✔</td>
+                            <td>✔</td>
+                        </tr>
+                        <tr>
+                            <td>Role Permissions</td>
+                            <td class="text-muted">✖</td>
+                            <td>Limited</td>
+                            <td>Advanced</td>
+                        </tr>
+
+                        <tr class="category-header">
+                            <th colspan="4" class="text-left">🔐 Security</th>
+                        </tr>
+                        <tr>
+                            <td>Secure Payments</td>
+                            <td>✔</td>
+                            <td>✔</td>
+                            <td>✔</td>
+                        </tr>
+                        <tr>
+                            <td>Data Encryption</td>
+                            <td>✔</td>
+                            <td>✔</td>
+                            <td>✔</td>
+                        </tr>
+                        <tr>
+                            <td>SSO / SAML</td>
+                            <td class="text-muted">✖</td>
+                            <td class="text-muted">✖</td>
+                            <td>✔</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Compliance</td>
+                            <td class="text-muted">✖</td>
+                            <td class="text-muted">✖</td>
+                            <td>✔</td>
+                        </tr>
+
+                        <tr class="category-header">
+                            <th colspan="4" class="text-left">🛎 Support</th>
+                        </tr>
+                        <tr>
+                            <td>Email Support</td>
+                            <td>✔</td>
+                            <td>✔</td>
+                            <td>✔</td>
+                        </tr>
+                        <tr>
+                            <td>Priority Support</td>
+                            <td class="text-muted">✖</td>
+                            <td>✔</td>
+                            <td>✔</td>
+                        </tr>
+                        <tr>
+                            <td>Dedicated Manager</td>
+                            <td class="text-muted">✖</td>
+                            <td class="text-muted">✖</td>
+                            <td>✔</td>
+                        </tr>
+                        <tr>
+                            <td>SLA Guarantee</td>
+                            <td class="text-muted">✖</td>
+                            <td class="text-muted">✖</td>
+                            <td>✔</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I change plans later?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. Upgrade or downgrade anytime from your dashboard. Changes will be reflected in your next
+                            billing cycle.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What payment methods do you accept?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We accept all major payment methods including UPI, Credit/Debit Cards, Net Banking, and
+                            Corporate Invoices for Enterprise clients.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is there a free trial?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. Eco Pro offers a full-featured 14-day free trial so you can experience the power of our
+                            digital tools risk-free.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What happens if I exceed my limits?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You’ll be notified well in advance if you're approaching your limits. You can upgrade
+                            instantly or adjust your usage as needed.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you offer refunds?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. All our annual plans come with a 7-day refund window. Monthly plans can be cancelled
+                            anytime without further commitment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enterprise CTA -->
+    <section class="enterprise-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Need a Custom Tourism Solution?</h2>
+                <p>Talk to our team about state-level digital tourism infrastructure and tribal empowerment programs.
+                </p>
+
+                <div class="cta-actions">
+                    <button class="btn btn-white">Schedule a Demo</button>
+                    <button class="btn btn-outline-white">Talk to Sales</button>
+                </div>
+
+                <div class="mini-form">
+                    <div class="form-row">
+                        <input type="text" placeholder="Your Name">
+                        <input type="text" placeholder="Organization">
+                    </div>
+                    <div class="form-row">
+                        <input type="email" placeholder="Work Email">
+                    </div>
+                    <textarea placeholder="How can we help?"></textarea>
+                    <button class="btn btn-primary full-width">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Simplified) -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 EcoKumari. Empowering Communities Sustainably.</p>
+        </div>
+    </footer>
+
+    <script src="pricing.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

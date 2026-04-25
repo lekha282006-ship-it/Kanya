@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Error | EcoKumari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="errors.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="error-body">
+    <div class="error-container">
+        <div class="error-content">
+            <div class="error-illustration">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                    <circle cx="100" cy="100" r="80" fill="#fef2f2" />
+                    <path d="M50 100 Q100 50 150 100 T250 100" fill="none" stroke="#ef4444" stroke-width="4"
+                        stroke-linecap="round" opacity="0.4" />
+                    <path d="M40 120 Q90 70 140 120 T240 120" fill="none" stroke="#ef4444" stroke-width="4"
+                        stroke-linecap="round" opacity="0.2" />
+                    <circle cx="140" cy="70" r="20" fill="#f59e0b" opacity="0.3" />
+                    <rect x="80" y="80" width="40" height="40" rx="4" fill="#ef4444" opacity="0.1" />
+                    <path d="M90 90 L110 110 M110 90 L90 110" stroke="#ef4444" stroke-width="4"
+                        stroke-linecap="round" />
+                </svg>
+            </div>
+            <h1 class="error-title">Something went wrong</h1>
+            <p class="error-message">We’re experiencing technical difficulties. Our team has been notified and is
+                working to restore the trail.</p>
+
+            <div class="error-id">Error ID: EK-500-8F2D3</div>
+
+            <div class="error-actions" style="margin-top: 2rem;">
+                <a href="#" onclick="location.reload()" class="btn-error btn-primary">
+                    <i data-lucide="refresh-cw"></i>
+                    Try Again
+                </a>
+                <a href="#" class="btn-error btn-outline">
+                    <i data-lucide="activity"></i>
+                    Check System Status
+                </a>
+            </div>
+
+            <p style="margin-top: 2.5rem; color: var(--text-muted); font-size: 0.9rem;">
+                For urgent booking issues, contact <a href="mailto:support@ecokumari.in"
+                    style="color: var(--indigo); font-weight: 600;">support@ecokumari.in</a>
+            </p>
+        </div>
+    </div>
+
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

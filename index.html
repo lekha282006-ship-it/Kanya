@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoKumari – Sustainable Tourism & Artisan Heritage</title>
+    <meta name="description"
+        content="EcoKumari is Kanniyakumari's official eco-tourism portal. Book verified stays, buy tribal heritage products, and explore pristine nature.">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        .hero {
+            padding: 9rem 0 6rem;
+            background: radial-gradient(circle at 10% 20%, hsl(238, 83%, 66%, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, hsl(142, 71%, 45%, 0.05) 0%, transparent 50%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.8rem, 6vw, 4.2rem);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--muted);
+            max-width: 540px;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Dashboard Card Visual */
+        .hero-visual {
+            position: relative;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .dashboard-card {
+            background: #fff;
+            border-radius: var(--r-xl);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        .db-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fafafa;
+        }
+
+        .db-body {
+            padding: 2rem;
+        }
+
+        .map-placeholder {
+            height: 240px;
+            background: linear-gradient(135deg, #e0f2fe 0%, #dcfce7 100%);
+            border-radius: var(--r-md);
+            position: relative;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .floating-widget {
+            position: absolute;
+            background: var(--glass);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            padding: 1rem;
+            border-radius: var(--r-md);
+            box-shadow: var(--shadow-lg);
+            z-index: 3;
+            transition: transform 0.1s ease-out;
+        }
+
+        .w-1 {
+            top: -20px;
+            right: -30px;
+            width: 180px;
+        }
+
+        .w-2 {
+            bottom: 40px;
+            left: -40px;
+            width: 200px;
+        }
+
+        @media (max-width: 1100px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-visual {
+                margin-top: 4rem;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-leaf">🌿</span>
+                <span class="logo-text">EcoKumari</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="stays.html">Eco Stays</a>
+                <a href="marketplace.html">Marketplace</a>
+                <a href="lake-tourism.html">Lake Tourism</a>
+            </div>
+            <div class="nav-cta">
+                <a href="signup.html" class="btn btn-hero-cta">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <div class="hero-badge">🌿 100% Sustainable Tourism</div>
+                    <h1>Eco-Impact Built with <span class="gradient-text">Trust.</span></h1>
+                    <p>Kanniyakumari's first government-integrated portal for verified eco-stays and direct-payout
+                        tribal heritage products.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="stays.html" class="btn btn-hero-cta">Explore Stays</a>
+                        <a href="marketplace.html" class="btn btn-ghost">View Heritage</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="floating-widget w-1">
+                        <div style="font-size: 0.75rem; color: var(--muted); margin-bottom: 0.25rem;">Live Impact</div>
+                        <div
+                            style="font-weight: 800; font-size: 1.2rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--emerald);">₹18.4L</span>
+                        </div>
+                        <div style="font-size: 0.65rem; color: var(--muted); margin-top: 5px;">Pitched to Artisans</div>
+                    </div>
+
+                    <div class="floating-widget w-2">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div
+                                style="width: 32px; height: 32px; border-radius: 50%; background: #dcfce7; display: flex; align-items: center; justify-content: center; color: var(--emerald);">
+                                <i data-lucide="shield-check" style="width: 18px;"></i>
+                            </div>
+                            <div>
+                                <div style="font-size: 0.8rem; font-weight: 800;">75-Point Audit</div>
+                                <div style="font-size: 0.65rem; color: var(--muted);">Stay Verified</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="db-header">
+                            <span style="font-weight: 800; font-size: 0.85rem;">Verification Hub</span>
+                            <div style="display: flex; gap: 5px;">
+                                <div style="width: 8px; height: 8px; border-radius: 50%; background: #ef4444;"></div>
+                                <div style="width: 8px; height: 8px; border-radius: 50%; background: #fbbf24;"></div>
+                                <div style="width: 8px; height: 8px; border-radius: 50%; background: #22c55e;"></div>
+                            </div>
+                        </div>
+                        <div class="db-body">
+                            <div class="map-placeholder">
+                                <!-- Inner Map Pin Animation placeholder -->
+                                <div
+                                    style="position: absolute; top: 40%; left: 50%; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 0 10px rgba(99,102,241,0.2);">
+                                </div>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div style="padding: 1rem; background: #f8fafc; border-radius: var(--r-md);">
+                                    <div style="font-size: 0.7rem; color: var(--muted);">Eco Score</div>
+                                    <div style="font-size: 1.2rem; font-weight: 800;">98.2</div>
+                                </div>
+                                <div style="padding: 1rem; background: #f8fafc; border-radius: var(--r-md);">
+                                    <div style="font-size: 0.7rem; color: var(--muted);">Compliance</div>
+                                    <div style="font-size: 1.2rem; font-weight: 800; color: var(--emerald);">PASS</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── Project Vision & Impact ─────────────────────────── -->
+    <section class="vision-section" style="padding: 100px 0; background: #fff;">
+        <div class="container" style="max-width: 1000px;">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <div class="hero-badge" style="margin: 0 auto 1.5rem;">The Mission</div>
+                <h2 style="font-size: 2.5rem; color: var(--text); margin-bottom: 20px;">Integrated Verified Digital
+                    Tourism & <br><span class="gradient-text">Tribal Empowerment Portal</span> for Kanniyakumari</h2>
+            </div>
+
+            <div
+                style="background: var(--primary-light); padding: 4rem; border-radius: var(--r-xl); border: 1px solid var(--border); line-height: 1.8; color: var(--text);">
+                <p style="margin-bottom: 2rem; font-size: 1.1rem; font-weight: 500; color: var(--primary-dark);">
+                    Kanniyakumari, renowned for its rich green landscapes, scenic lakes, cultural heritage, and tribal
+                    communities, lacks a dedicated verified digital platform that consolidates authentic tourism
+                    information, accommodation booking, and local livelihood opportunities.
+                </p>
+
+                <p style="margin-bottom: 2rem; opacity: 0.8;">
+                    This project proposes the development of a <strong>government-verified, one-stop digital tourism
+                        portal</strong> for Kanniyakumari that integrates accommodation booking, local experience
+                    discovery, eco-tourism promotion, and a marketplace for tribal products. The platform provides
+                    authenticated listings of hotels, homestays, guides, and eco-tour packages, ensuring reliability and
+                    transparency for travelers.
+                </p>
+
+                <p style="margin-bottom: 2rem; opacity: 0.8;">
+                    The solution incorporates features such as geo-tagged attraction mapping, real-time booking
+                    capabilities, verified host badges, and an administrative dashboard for tourism authorities. By
+                    combining tourism digitization with community empowerment, the platform aims to enhance visitor
+                    experience, strengthen local economic development, and promote sustainable practices.
+                </p>
+
+                <div
+                    style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.1); display: flex; align-items: center; gap: 1rem; color: var(--primary);">
+                    <i data-lucide="info" style="width: 20px;"></i>
+                    <span
+                        style="font-size: 0.9rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Scalable
+                        Framework for National Eco-Tourism</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        lucide.createIcons();
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 40) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+    </script>
+</body>
+
+</html>

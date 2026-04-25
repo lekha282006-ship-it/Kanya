@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | EcoKumari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="settings.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="settings-body">
+    <!-- Settings Wrapper -->
+    <div class="settings-wrapper">
+        <!-- Settings Sidebar -->
+        <aside class="settings-sidebar">
+            <div class="sidebar-top">
+                <a href="dashboard.html" class="back-link">
+                    <i data-lucide="arrow-left"></i>
+                    <span>Back to Dashboard</span>
+                </a>
+                <h2 class="sidebar-title">Settings</h2>
+            </div>
+
+            <nav class="settings-nav">
+                <button class="nav-btn active" data-section="profile">
+                    <i data-lucide="user"></i>
+                    <span>Profile</span>
+                </button>
+                <button class="nav-btn" data-section="account">
+                    <i data-lucide="building"></i>
+                    <span>Account</span>
+                </button>
+                <button class="nav-btn" data-section="workspace">
+                    <i data-lucide="globe"></i>
+                    <span>Workspace</span>
+                </button>
+                <button class="nav-btn" data-section="notifications">
+                    <i data-lucide="bell"></i>
+                    <span>Notifications</span>
+                </button>
+                <button class="nav-btn" data-section="integrations">
+                    <i data-lucide="link"></i>
+                    <span>Integrations</span>
+                </button>
+                <button class="nav-btn" data-section="billing">
+                    <i data-lucide="credit-card"></i>
+                    <span>Billing</span>
+                </button>
+                <button class="nav-btn" data-section="security">
+                    <i data-lucide="shield-check"></i>
+                    <span>Security</span>
+                </button>
+                <button class="nav-btn" data-section="api">
+                    <i data-lucide="settings"></i>
+                    <span>API</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="settings-content">
+            <!-- Profile Section -->
+            <section id="profile" class="settings-section active">
+                <div class="section-card">
+                    <div class="card-header">
+                        <h3>Personal Profile</h3>
+                        <p>Manage your public information and preferences.</p>
+                    </div>
+
+                    <div class="avatar-upload">
+                        <div class="avatar-preview">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=facearea&facepad=2&w=128&h=128&q=80"
+                                alt="Profile avatar">
+                        </div>
+                        <div class="avatar-actions">
+                            <button class="btn btn-primary btn-sm">Upload Photo</button>
+                            <button class="btn btn-outline btn-sm text-danger">Remove</button>
+                        </div>
+                    </div>
+
+                    <form class="settings-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" value="Dr. Kannan M.">
+                            </div>
+                            <div class="form-group">
+                                <label>Display Name</label>
+                                <input type="text" value="Kannan_Kumari">
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <div class="read-only-input">
+                                    <span>kannan@tourism.gov.in</span>
+                                    <a href="#">Change</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Job Title</label>
+                                <select>
+                                    <option value="host">Eco Host</option>
+                                    <option value="artisan">Tribal Artisan</option>
+                                    <option value="traveler">Traveler</option>
+                                    <option value="official" selected>Government Official</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Bio / About</label>
+                            <textarea placeholder="Tell us about yourself..."
+                                id="profile-bio">Dedicated to preserving the natural beauty of Kanniyakumari through sustainable digital solutions. Leading the regional eco-tourism initiative since 2024.</textarea>
+                            <div class="textarea-footer">
+                                <span class="char-counter">0 / 500</span>
+                            </div>
+                        </div>
+
+                        <div class="section-divider"></div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Timezone</label>
+                                <select>
+                                    <option value="ist">(GMT+05:30) India Standard Time</option>
+                                    <option value="utc">(GMT+00:00) UTC</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Language</label>
+                                <select>
+                                    <option value="en">English (US)</option>
+                                    <option value="ta">Tamil</option>
+                                    <option value="hi">Hindi</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Currency</label>
+                                <select>
+                                    <option value="inr">INR (₹)</option>
+                                    <option value="usd">USD ($)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Save Profile Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Workspace Section -->
+            <section id="workspace" class="settings-section">
+                <div class="section-card">
+                    <div class="card-header">
+                        <h3>Workspace Settings</h3>
+                        <p>Configure institutional and governance parameters.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Workspace Name</label>
+                        <input type="text" value="Kanniyakumari Tourism Board">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Workspace URL</label>
+                        <div class="url-input-group">
+                            <input type="text" value="kumari" class="subdomain-input">
+                            <span class="domain-suffix">.ecokumari.in</span>
+                            <span class="status-available">Available</span>
+                        </div>
+                    </div>
+
+                    <div class="section-divider"></div>
+
+                    <div class="card-header-inner">
+                        <h4>Default Project Settings</h4>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Eco Impact Threshold</label>
+                            <input type="number" value="75" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>Approval Flow</label>
+                            <select>
+                                <option>Instant Approval</option>
+                                <option selected>Manual Verification Required</option>
+                                <option>Two-step Verification</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="section-divider"></div>
+
+                    <div class="card-header-inner">
+                        <h4>Member Permissions Matrix</h4>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="matrix-table">
+                            <thead>
+                                <tr>
+                                    <th>Role</th>
+                                    <th>View Bookings</th>
+                                    <th>Approve Hosts</th>
+                                    <th>Manage Artisans</th>
+                                    <th>View Analytics</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Admin</td>
+                                    <td><input type="checkbox" checked disabled></td>
+                                    <td><input type="checkbox" checked disabled></td>
+                                    <td><input type="checkbox" checked disabled></td>
+                                    <td><input type="checkbox" checked disabled></td>
+                                </tr>
+                                <tr>
+                                    <td>Tourism Officer</td>
+                                    <td><input type="checkbox" checked></td>
+                                    <td><input type="checkbox" checked></td>
+                                    <td><input type="checkbox"></td>
+                                    <td><input type="checkbox" checked></td>
+                                </tr>
+                                <tr>
+                                    <td>Moderator</td>
+                                    <td><input type="checkbox" checked></td>
+                                    <td><input type="checkbox"></td>
+                                    <td><input type="checkbox" checked></td>
+                                    <td><input type="checkbox"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Update Workspace</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notifications Section -->
+            <section id="notifications" class="settings-section">
+                <div class="section-card">
+                    <div class="card-header">
+                        <h3>Notification Preferences</h3>
+                        <p>Decide how and when you want to be notified.</p>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="notif-table">
+                            <thead>
+                                <tr>
+                                    <th class="text-left">Notification Event</th>
+                                    <th>Email</th>
+                                    <th>Push</th>
+                                    <th>In-App</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Task Assigned</td>
+                                    <td>
+                                        <div class="toggle"><input type="checkbox" checked></div>
+                                    </td>
+                                    <td>
+                                        <div class="toggle"><input type="checkbox" checked></div>
+                                    </td>
+                                    <td>
+                                        <div class="toggle"><input type="checkbox" checked></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Booking Confirmed</td>
+                                    <td>
+                                        <div class="toggle"><input type="checkbox" checked></div>
+                                    </td>
+                                    <td>
+                                        <div class="toggle"><input type="checkbox"></div>
+                                    </td>
+                                    <td>
+                                        <div class="toggle"><input type="checkbox" checked></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Host Verification Pending</td>
+                                    <td>
+                                        <div class="toggle"><input type="checkbox" checked></div>
+                                    </td>
+                                    <td>
+                                        <div class="toggle"><input type="checkbox" checked></div>
+                                    </td>
+                                    <td>
+                                        <div class="toggle"><input type="checkbox" checked></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Mentions</td>
+                                    <td>
+                                        <div class="toggle"><input type="checkbox"></div>
+                                    </td>
+                                    <td>
+                                        <div class="toggle"><input type="checkbox" checked></div>
+                                    </td>
+                                    <td>
+                                        <div class="toggle"><input type="checkbox" checked></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Weekly Tourism Report</td>
+                                    <td>
+                                        <div class="toggle"><input type="checkbox" checked></div>
+                                    </td>
+                                    <td>
+                                        <div class="toggle"><input type="checkbox"></div>
+                                    </td>
+                                    <td>
+                                        <div class="toggle"><input type="checkbox"></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Integrations Section -->
+            <section id="integrations" class="settings-section">
+                <div class="section-header">
+                    <h3>Integrations</h3>
+                    <div class="search-filter">
+                        <input type="text" placeholder="Search integrations..." class="search-input">
+                        <select class="filter-select">
+                            <option>All Types</option>
+                            <option>Payments</option>
+                            <option>Analytics</option>
+                            <option>Communication</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="integrations-grid">
+                    <div class="integration-card connected">
+                        <div class="card-top">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Google_Maps_Logo_2020.svg"
+                                alt="Google Maps">
+                            <span class="badge badge-success">Connected</span>
+                        </div>
+                        <h4>Google Maps API</h4>
+                        <p>Dynamic eco-maps and lake locations data synchronization.</p>
+                        <button class="btn btn-outline btn-sm">Disconnect</button>
+                    </div>
+
+                    <div class="integration-card connected">
+                        <div class="card-top">
+                            <img src="https://razorpay.com/favicon.png" alt="Razorpay">
+                            <span class="badge badge-success">Connected</span>
+                        </div>
+                        <h4>Razorpay</h4>
+                        <p>Secure UPI and local payment processing for travelers.</p>
+                        <button class="btn btn-outline btn-sm">Disconnect</button>
+                    </div>
+
+                    <div class="integration-card">
+                        <div class="card-top">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                        </div>
+                        <h4>WhatsApp Business</h4>
+                        <p>Send automated booking updates and tribal artisan alerts.</p>
+                        <button class="btn btn-primary btn-sm">Connect</button>
+                    </div>
+
+                    <div class="integration-card">
+                        <div class="card-top">
+                            <i data-lucide="database" class="integration-icon"></i>
+                        </div>
+                        <h4>Government Portal Sync</h4>
+                        <p>Real-time data synchronization with TN Tourism portal.</p>
+                        <button class="btn btn-primary btn-sm">Connect</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Billing Section -->
+            <section id="billing" class="settings-section">
+                <div class="section-card billing-overview">
+                    <div class="plan-info">
+                        <div class="plan-details">
+                            <span class="label">Current Plan</span>
+                            <h4 class="plan-name">Institutional / Govt</h4>
+                            <p class="plan-expiry">Next renewal: December 14, 2026</p>
+                        </div>
+                        <button class="btn btn-primary">Upgrade Plan</button>
+                    </div>
+                    <div class="usage-summary">
+                        <div class="usage-item">
+                            <div class="usage-label"><span>Users Used</span> <span>12/50</span></div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 24%"></div>
+                            </div>
+                        </div>
+                        <div class="usage-item">
+                            <div class="usage-label"><span>Storage Used</span> <span>42GB / 100GB</span></div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 42%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-card payment-method">
+                    <div class="card-header">
+                        <h3>Payment Method</h3>
+                    </div>
+                    <div class="payment-card-display">
+                        <div class="card-brand">
+                            <i data-lucide="credit-card"></i>
+                            <div class="card-info">
+                                <span>Visa ending in 4242</span>
+                                <small>Expiry: 12/28</small>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline btn-sm">Change</button>
+                    </div>
+                    <button class="btn btn-link btn-sm">+ Add new payment method</button>
+                </div>
+
+                <div class="section-card billing-history">
+                    <div class="card-header">
+                        <h3>Billing History</h3>
+                    </div>
+                    <div class="table-container">
+                        <table class="history-table">
+                            <thead>
+                                <tr>
+                                    <th>Invoice ID</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#INV-9821</td>
+                                    <td>Feb 01, 2026</td>
+                                    <td>₹14,999</td>
+                                    <td><span class="badge badge-success">Paid</span></td>
+                                    <td><a href="#" class="download-btn"><i data-lucide="download"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td>#INV-9820</td>
+                                    <td>Jan 01, 2026</td>
+                                    <td>₹14,999</td>
+                                    <td><span class="badge badge-success">Paid</span></td>
+                                    <td><a href="#" class="download-btn"><i data-lucide="download"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="danger-zone">
+                        <button class="btn-cancel-subscription">Cancel Subscription</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Security Section -->
+            <section id="security" class="settings-section">
+                <div class="section-card">
+                    <div class="card-header">
+                        <h3>Security & Access</h3>
+                        <p>Secure your account with multi-factor authentication and session management.</p>
+                    </div>
+
+                    <div class="form-group-security">
+                        <h4>Change Password</h4>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Current Password</label>
+                                <input type="password" placeholder="••••••••">
+                            </div>
+                            <div class="form-group">
+                                <label>New Password</label>
+                                <input type="password" placeholder="••••••••">
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" placeholder="••••••••">
+                            </div>
+                        </div>
+                        <div class="password-strength">
+                            <span>Password Strength: Strong</span>
+                            <div class="strength-meter">
+                                <div class="strength-bar strong"></div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-sm mt-3">Update Password</button>
+                    </div>
+
+                    <div class="section-divider"></div>
+
+                    <div class="security-item">
+                        <div class="item-text">
+                            <h4>Two-Factor Authentication</h4>
+                            <p>Add an extra layer of security to your account.</p>
+                        </div>
+                        <div class="toggle"><input type="checkbox" checked></div>
+                    </div>
+
+                    <div class="section-divider"></div>
+
+                    <div class="card-header-inner">
+                        <h4>Active Sessions</h4>
+                    </div>
+                    <div class="table-container">
+                        <table class="sessions-table">
+                            <thead>
+                                <tr>
+                                    <th>Device</th>
+                                    <th>Location</th>
+                                    <th>Last Active</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>MacBook Pro • Chrome</td>
+                                    <td>Nagercoil, IN</td>
+                                    <td>Now</td>
+                                    <td><span class="current-session">Current</span></td>
+                                </tr>
+                                <tr>
+                                    <td>iPhone 15 • Safari</td>
+                                    <td>Chennai, IN</td>
+                                    <td>2 hours ago</td>
+                                    <td><button class="btn-signout">Sign Out</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- API Section -->
+            <section id="api" class="settings-section">
+                <div class="section-card">
+                    <div class="card-header">
+                        <h3>API Management</h3>
+                        <p>Authenticate your external applications to interact with EcoKumari data.</p>
+                    </div>
+
+                    <div class="api-key-container">
+                        <div class="api-key-header">
+                            <label>Default API Key</label>
+                            <span class="rate-limit">Rate limit: 10,000 req/day</span>
+                        </div>
+                        <div class="api-key-input">
+                            <input type="password" value="ek_live_8923hjsdf92348skjdfh2348" readonly>
+                            <button class="btn-copy"><i data-lucide="copy"></i></button>
+                            <button class="btn btn-outline btn-sm">Revoke</button>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary">Generate New API Key</button>
+
+                    <div class="section-divider"></div>
+
+                    <div class="api-docs-link">
+                        <div class="docs-icon">
+                            <i data-lucide="book-open"></i>
+                        </div>
+                        <div class="docs-text">
+                            <h4>API Documentation</h4>
+                            <p>Learn how to integrate our tourism data using our documented endpoints.</p>
+                            <a href="#">Read Documentation →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="settings.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

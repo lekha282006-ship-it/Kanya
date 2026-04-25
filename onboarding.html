@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to EcoKumari | Onboarding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="onboarding.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="onboarding-body">
+    <div class="onboarding-container">
+        <!-- Progress Bar -->
+        <div class="onboarding-header">
+            <div class="progress-info">
+                <span id="step-text">Step 1 of 4</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-fill" style="width: 25%"></div>
+            </div>
+        </div>
+
+        <div class="onboarding-card">
+            <!-- Step 1: Welcome -->
+            <div class="step active" id="step1">
+                <div class="step-illustration">
+                    <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 100 Q100 50 200 100 L200 120 L0 120 Z" fill="#22c55e" opacity="0.1" />
+                        <circle cx="160" cy="40" r="20" fill="#f59e0b" opacity="0.6" />
+                        <path d="M40 100 L60 100 Q100 20 140 100 L160 100" fill="none" stroke="#6366f1"
+                            stroke-width="4" />
+                    </svg>
+                </div>
+                <h2>Welcome to EcoKumari!</h2>
+                <p class="subtitle">Let’s set up your tourism workspace in under 2 minutes.</p>
+
+                <form class="onboarding-form">
+                    <div class="form-group">
+                        <label>Workspace Name</label>
+                        <input type="text" id="ws-name" placeholder="Kanyakumari Eco Tourism Board" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Role</label>
+                        <select id="user-role">
+                            <option value="officer">Tourism Officer</option>
+                            <option value="host">Eco Stay Host</option>
+                            <option value="artisan">Tribal Artisan</option>
+                            <option value="manager">Marketplace Manager</option>
+                            <option value="admin">Platform Admin</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Workspace Logo (Optional)</label>
+                        <div class="upload-area">
+                            <i data-lucide="upload-cloud"></i>
+                            <span>Drag & drop or Click to upload</span>
+                            <input type="file" hidden>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 2: Invite Team -->
+            <div class="step" id="step2">
+                <h2>Invite your team members</h2>
+                <p class="subtitle">Collaborate with officials, hosts, and artisans.</p>
+
+                <div class="invite-container">
+                    <div class="invite-rows" id="inviteRows">
+                        <div class="invite-row">
+                            <input type="email" placeholder="email@example.com">
+                            <select>
+                                <option>Admin</option>
+                                <option>Manager</option>
+                                <option>Host</option>
+                                <option>Artisan</option>
+                                <option>Viewer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn-link" id="addRowBtn">+ Add another</button>
+
+                    <div class="bulk-invite">
+                        <details>
+                            <summary>Paste multiple emails</summary>
+                            <textarea placeholder="email1@domain.com, email2@domain.com..."></textarea>
+                        </details>
+                    </div>
+                </div>
+                <div class="skip-area">
+                    <a href="#" class="skip-link" data-next="3">I’ll do this later</a>
+                </div>
+            </div>
+
+            <!-- Step 3: Create Project -->
+            <div class="step" id="step3">
+                <h2>Create your first eco project</h2>
+                <p class="subtitle">Launch an initiative or manage a destination.</p>
+
+                <div class="form-group">
+                    <label>Project Name</label>
+                    <input type="text" id="proj-name" placeholder="Lake Conservation Drive 2026">
+                </div>
+
+                <div class="template-grid">
+                    <div class="template-card" data-template="campaign">
+                        <div class="template-icon"><i data-lucide="leaf"></i></div>
+                        <h5>Eco Tourism Campaign</h5>
+                        <p>Host verification, listings, marketing.</p>
+                    </div>
+                    <div class="template-card" data-template="marketplace">
+                        <div class="template-icon"><i data-lucide="shopping-bag"></i></div>
+                        <h5>Tribal Marketplace</h5>
+                        <p>Artisan onboarding, catalog, payments.</p>
+                    </div>
+                    <div class="template-card" data-template="destination">
+                        <div class="template-icon"><i data-lucide="map"></i></div>
+                        <h5>Destination Management</h5>
+                        <p>Lake tracking, visitor analytics.</p>
+                    </div>
+                    <div class="template-card" data-template="govt">
+                        <div class="template-icon"><i data-lucide="bar-chart-3"></i></div>
+                        <h5>Govt Monitoring</h5>
+                        <p>Impact dashboard, revenue tracking.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Personalize -->
+            <div class="step" id="step4">
+                <h2>Customize your experience</h2>
+                <p class="subtitle">Make EcoKumari work your way.</p>
+
+                <div class="personalize-options">
+                    <div class="option-group">
+                        <label>Notification Preferences</label>
+                        <div class="checkbox-group">
+                            <label class="cb-label"><input type="checkbox" checked> Booking confirmations</label>
+                            <label class="cb-label"><input type="checkbox" checked> Tribal product sales</label>
+                            <label class="cb-label"><input type="checkbox"> Weekly tourism analytics</label>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <label>Theme Preference</label>
+                        <div class="theme-radios">
+                            <label class="radio-label"><input type="radio" name="theme" value="light" checked>
+                                Light</label>
+                            <label class="radio-label"><input type="radio" name="theme" value="dark"> Dark</label>
+                            <label class="radio-label"><input type="radio" name="theme" value="system"> System</label>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <div class="toggle-group">
+                            <span>Enable Keyboard Shortcuts</span>
+                            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Completion Screen -->
+            <div class="step" id="step-final">
+                <canvas id="canvas" class="confetti-canvas"></canvas>
+                <div class="success-illustration">🌿</div>
+                <h2>You’re all set!</h2>
+                <div class="summary-card">
+                    <div class="summary-item">
+                        <span class="s-label">Workspace:</span>
+                        <span class="s-value" id="final-ws">Kanyakumari Board</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="s-label">Project:</span>
+                        <span class="s-value" id="final-proj">Lake Conservation</span>
+                    </div>
+                </div>
+                <button class="btn-primary full-width" onclick="window.location.href='dashboard.html'">Go to
+                    Dashboard</button>
+                <a href="#" class="guide-link">Watch 2-min Getting Started Guide</a>
+            </div>
+
+            <!-- Footer Controls -->
+            <div class="onboarding-footer" id="onboardingFooter">
+                <button class="btn-outline" id="backBtn">Back</button>
+                <button class="btn-primary" id="nextBtn" disabled>Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="onboarding.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

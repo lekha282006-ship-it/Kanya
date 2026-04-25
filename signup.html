@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | EcoKumari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="auth.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class="auth-wrapper">
+        <!-- Branding Panel -->
+        <div class="branding-panel">
+            <div class="branding-header">
+                <span class="logo-icon">🌿</span>
+                <span class="brand-name">EcoKumari</span>
+            </div>
+
+            <div class="branding-content">
+                <h1>Join the digital <br>movement.</h1>
+                <p>Empowering tribal communities and promoting sustainable tourism through modern technology.</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-quote">“EcoKumari gave our cooperative the tools to reach global travelers. The
+                    digital transition was seamless.”</p>
+                <div class="testimonial-user">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=facearea&facepad=2&w=48&h=48&q=80"
+                        alt="Marcus Chen" class="user-avatar">
+                    <div class="user-info">
+                        <span class="name">Marcus Chen</span>
+                        <span class="role">Founder, Greenstays Network</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Panel -->
+        <div class="form-panel">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h2>Create your account</h2>
+                    <p>Start your 14-day free trial today</p>
+                </div>
+
+                <form class="auth-form" id="signupForm">
+                    <div class="input-group">
+                        <label for="fullname">Full Name</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="user"></i>
+                            <input type="text" id="fullname" placeholder="John Doe" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Work Email</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="mail"></i>
+                            <input type="email" id="email" placeholder="name@company.com" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="lock"></i>
+                            <input type="password" id="password" placeholder="••••••••" required>
+                            <button type="button" class="toggle-password">
+                                <i data-lucide="eye"></i>
+                            </button>
+                        </div>
+                        <div class="strength-meter">
+                            <div class="strength-bar" id="strengthBar"></div>
+                        </div>
+                        <span class="strength-text" id="strengthText">Weak</span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <i data-lucide="check-circle"></i>
+                            <input type="password" id="confirmPassword" placeholder="••••••••" required>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group" style="margin: 0.5rem 0;">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms" style="font-size: 0.8rem; font-weight: 500;">
+                            I agree to the <a href="#" class="forgot-link">Terms of Service</a> and <a href="#"
+                                class="forgot-link">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-auth">
+                        <span>Create account</span>
+                        <i data-lucide="sparkles"></i>
+                    </button>
+
+                    <div class="divider">Or sign up with</div>
+
+                    <div class="social-buttons">
+                        <button type="button" class="social-btn" title="Google">
+                            <svg width="20" height="20" viewBox="0 0 24 24">
+                                <path
+                                    d="M22.56,12.25c0-0.78-0.07-1.53-0.2-2.25H12V14.26h5.92c-0.26,1.37-1.04,2.53-2.21,3.31l3.41,2.64C21.14,18.59,22.56,15.7,22.56,12.25z"
+                                    fill="#4285F4" />
+                                <path
+                                    d="M12,23c2.97,0,5.46-0.98,7.28-2.66l-3.41-2.64c-1,0.67-2.28,1.06-3.87,1.06c-2.85,0-5.27-1.92-6.13-4.51l-3.53,2.73C4.19,20.44,7.82,23,12,23z"
+                                    fill="#34A853" />
+                                <path
+                                    d="M5.87,14.25c-0.22-0.67-0.35-1.38-0.35-2.12c0-0.74,0.13-1.45,0.35-2.12L2.34,7.28C1.5,8.94,1,10.82,1,12.75c0,1.93,0.5,3.81,1.34,5.47L5.87,14.25z"
+                                    fill="#FBBC05" />
+                                <path
+                                    d="M12,5.25c1.61,0,3.06,0.55,4.2,1.64l3.15-3.15C17.45,1.83,14.97,0.75,12,0.75c-4.18,0-7.81,2.56-9.66,6.53l3.53,2.73C6.73,7.17,9.15,5.25,12,5.25z"
+                                    fill="#EA4335" />
+                            </svg>
+                        </button>
+                        <button type="button" class="social-btn" title="GitHub">
+                            <i data-lucide="github"></i>
+                        </button>
+                        <button type="button" class="social-btn" title="Microsoft">
+                            <svg width="20" height="20" viewBox="0 0 23 23">
+                                <rect width="10.8" height="10.8" fill="#f25022" />
+                                <rect x="12.2" width="10.8" height="10.8" fill="#7fbb00" />
+                                <rect y="12.2" width="10.8" height="10.8" fill="#00a1f1" />
+                                <rect x="12.2" y="12.2" width="10.8" height="10.8" fill="#ffb900" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="auth-footer">
+                        Already have an account? <a href="login.html">Sign in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

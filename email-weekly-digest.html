@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Your EcoKumari Weekly Summary 🌿</title>
+    <style>
+        @media only screen and (max-width: 620px) {
+            .main-table {
+                width: 100% !important;
+            }
+
+            .body-pad {
+                padding: 28px 20px !important;
+            }
+
+            .stat-col {
+                display: block !important;
+                width: 100% !important;
+            }
+        }
+    </style>
+</head>
+
+<body
+    style="margin:0;padding:0;background-color:#f8fafc;font-family:Arial,Helvetica,sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+        style="background-color:#f8fafc;padding:32px 0;">
+        <tr>
+            <td align="center">
+
+                <table class="main-table" role="presentation" width="600" cellpadding="0" cellspacing="0" border="0"
+                    style="background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+
+                    <!-- Gradient bar -->
+                    <tr>
+                        <td
+                            style="background:linear-gradient(135deg,#4f46e5,#22c55e);padding:0;height:5px;font-size:0;line-height:0;">
+                            &nbsp;</td>
+                    </tr>
+
+                    <!-- Logo -->
+                    <tr>
+                        <td align="center" style="padding:28px 40px 20px;">
+                            <span
+                                style="font-size:22px;font-weight:900;color:#16a34a;font-family:Arial,Helvetica,sans-serif;">🌿
+                                EcoKumari</span>
+                        </td>
+                    </tr>
+
+                    <!-- Hero -->
+                    <tr>
+                        <td
+                            style="background:linear-gradient(135deg,#0f172a,#1e1b4b);padding:28px 40px;text-align:center;">
+                            <div style="font-size:40px;margin-bottom:10px;">📊</div>
+                            <h1
+                                style="margin:0 0 6px;font-size:22px;font-weight:800;color:#ffffff;font-family:Arial,Helvetica,sans-serif;">
+                                Your Weekly Summary
+                            </h1>
+                            <p style="margin:0;font-size:13px;color:#94a3b8;">Week of {{WeekStartDate}} –
+                                {{WeekEndDate}}</p>
+                        </td>
+                    </tr>
+
+                    <!-- Body -->
+                    <tr>
+                        <td class="body-pad" style="padding:36px 40px;">
+                            <p style="margin:0 0 24px;font-size:15px;color:#1e293b;line-height:1.6;">Hi
+                                <strong>{{FirstName}}</strong>, here's what happened on
+                                <strong>{{WorkspaceName}}</strong> this week:</p>
+
+                            <!-- Stat cards row -->
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                                style="margin-bottom:28px;">
+                                <tr>
+                                    <td class="stat-col" width="33%" style="padding:0 4px 0 0;vertical-align:top;">
+                                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                                            border="0" style="background:#eff0ff;border-radius:10px;text-align:center;">
+                                            <tr>
+                                                <td style="padding:18px 12px;">
+                                                    <p
+                                                        style="margin:0 0 4px;font-size:26px;font-weight:900;color:#4f46e5;font-family:Arial,Helvetica,sans-serif;">
+                                                        {{Bookings}}</p>
+                                                    <p
+                                                        style="margin:0;font-size:11px;font-weight:700;color:#6366f1;text-transform:uppercase;letter-spacing:0.05em;">
+                                                        Eco Stays<br>Booked</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td class="stat-col" width="33%" style="padding:0 4px;vertical-align:top;">
+                                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                                            border="0" style="background:#f0fdf4;border-radius:10px;text-align:center;">
+                                            <tr>
+                                                <td style="padding:18px 12px;">
+                                                    <p
+                                                        style="margin:0 0 4px;font-size:26px;font-weight:900;color:#16a34a;font-family:Arial,Helvetica,sans-serif;">
+                                                        {{Sales}}</p>
+                                                    <p
+                                                        style="margin:0;font-size:11px;font-weight:700;color:#22c55e;text-transform:uppercase;letter-spacing:0.05em;">
+                                                        Tribal<br>Products Sold</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td class="stat-col" width="33%" style="padding:0 0 0 4px;vertical-align:top;">
+                                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                                            border="0" style="background:#fffbeb;border-radius:10px;text-align:center;">
+                                            <tr>
+                                                <td style="padding:18px 12px;">
+                                                    <p
+                                                        style="margin:0 0 4px;font-size:26px;font-weight:900;color:#d97706;font-family:Arial,Helvetica,sans-serif;">
+                                                        ₹{{Revenue}}</p>
+                                                    <p
+                                                        style="margin:0;font-size:11px;font-weight:700;color:#f59e0b;text-transform:uppercase;letter-spacing:0.05em;">
+                                                        Total<br>Revenue</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Data table -->
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                                style="border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;margin-bottom:28px;">
+                                <tr style="background:#f8fafc;">
+                                    <td
+                                        style="padding:10px 16px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#64748b;">
+                                        Metric</td>
+                                    <td
+                                        style="padding:10px 16px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#64748b;text-align:right;">
+                                        This Week</td>
+                                </tr>
+                                <tr style="border-top:1px solid #e2e8f0;">
+                                    <td style="padding:12px 16px;font-size:14px;color:#1e293b;font-weight:600;">🏞 Eco
+                                        Stays Booked</td>
+                                    <td
+                                        style="padding:12px 16px;font-size:14px;color:#4f46e5;font-weight:800;text-align:right;">
+                                        {{Bookings}}</td>
+                                </tr>
+                                <tr style="background:#fafafa;border-top:1px solid #e2e8f0;">
+                                    <td style="padding:12px 16px;font-size:14px;color:#1e293b;font-weight:600;">🛍
+                                        Tribal Products Sold</td>
+                                    <td
+                                        style="padding:12px 16px;font-size:14px;color:#16a34a;font-weight:800;text-align:right;">
+                                        {{Sales}}</td>
+                                </tr>
+                                <tr style="border-top:1px solid #e2e8f0;">
+                                    <td style="padding:12px 16px;font-size:14px;color:#1e293b;font-weight:600;">💰 Total
+                                        Revenue</td>
+                                    <td
+                                        style="padding:12px 16px;font-size:14px;color:#d97706;font-weight:800;text-align:right;">
+                                        ₹{{Revenue}}</td>
+                                </tr>
+                                <tr style="background:#fafafa;border-top:1px solid #e2e8f0;">
+                                    <td style="padding:12px 16px;font-size:14px;color:#1e293b;font-weight:600;">🌿 Eco
+                                        Score Change</td>
+                                    <td
+                                        style="padding:12px 16px;font-size:14px;color:#16a34a;font-weight:800;text-align:right;">
+                                        +{{EcoScore}}%</td>
+                                </tr>
+                            </table>
+
+                            <!-- Achievements -->
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                                style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;margin-bottom:20px;">
+                                <tr>
+                                    <td style="padding:18px 20px;">
+                                        <p
+                                            style="margin:0 0 12px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#15803d;">
+                                            🏆 Top Achievements</p>
+                                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                                            border="0">
+                                            <tr>
+                                                <td style="padding:5px 0;font-size:14px;color:#14532d;">🌿
+                                                    &nbsp;Increased eco rating by <strong>{{EcoScore}}%</strong> this
+                                                    week</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:5px 0;font-size:14px;color:#14532d;">🏞 &nbsp;New
+                                                    destination successfully listed</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:5px 0;font-size:14px;color:#14532d;">🛍
+                                                    &nbsp;{{Sales}} artisan products sold across {{ArtisanCount}}
+                                                    vendors</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Upcoming Deadlines -->
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+                                style="background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;margin-bottom:28px;">
+                                <tr>
+                                    <td style="padding:18px 20px;">
+                                        <p
+                                            style="margin:0 0 12px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#c2410c;">
+                                            📅 Upcoming Deadlines</p>
+                                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0"
+                                            border="0">
+                                            <tr>
+                                                <td style="padding:5px 0;font-size:14px;color:#7c2d12;">⏰ &nbsp;Host
+                                                    verification review – Due {{DeadlineDate1}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding:5px 0;font-size:14px;color:#7c2d12;">📄 &nbsp;Monthly
+                                                    impact report submission – Due {{DeadlineDate2}}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- CTA -->
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td align="center" style="padding:4px 0 24px;">
+                                        <a href="{{ReportLink}}"
+                                            style="background:#6366f1;color:#ffffff;padding:14px 36px;text-decoration:none;border-radius:8px;display:inline-block;font-size:15px;font-weight:700;font-family:Arial,Helvetica,sans-serif;">
+                                            View Full Report →
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="margin:0;font-size:14px;color:#64748b;line-height:1.6;">Questions or feedback?
+                                Reply to this email — we're always listening.</p>
+                            <p style="margin:20px 0 0;font-size:14px;color:#64748b;">Warm regards,<br><strong
+                                    style="color:#1e293b;">The EcoKumari Team</strong></p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background:#f1f5f9;padding:20px 40px;text-align:center;">
+                            <p style="margin:4px 0;font-size:12px;color:#64748b;">EcoKumari – Digital Eco-Tourism
+                                Platform</p>
+                            <p style="margin:4px 0;font-size:12px;color:#94a3b8;">Kanniyakumari, Tamil Nadu, India</p>
+                            <p style="margin:10px 0 4px;font-size:12px;">
+                                <a href="#" style="color:#6366f1;text-decoration:none;">Unsubscribe</a>
+                                &nbsp;&nbsp;|&nbsp;&nbsp;
+                                <a href="#" style="color:#6366f1;text-decoration:none;">Help Center</a>
+                            </p>
+                            <p style="margin:4px 0;font-size:11px;color:#94a3b8;">© 2025 EcoKumari. All rights reserved.
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

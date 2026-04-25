@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Stays – Verified Accommodations | EcoKumari</title>
+    <meta name="description"
+        content="Browse and book government-certified eco stays in Kanniyakumari. Lakeside cottages, tribal homestays, and forest camps — all verified.">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, hsl(222, 47%, 11%) 0%, hsl(160, 84%, 15%) 100%);
+            padding: 9rem 0 6rem;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1542332213-9b5a5a3fab35?auto=format&fit=crop&q=80&w=2000') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .page-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .page-hero p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .search-bar {
+            background: var(--glass);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--r-xl);
+            padding: 1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-xl);
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .sb-field {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex: 1;
+            padding: 0.5rem 1rem;
+            border-right: 1px solid var(--border);
+        }
+
+        .sb-field:last-of-type {
+            border-right: none;
+        }
+
+        .sb-field input,
+        .sb-field select {
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-weight: 500;
+            color: var(--text);
+            font-family: inherit;
+        }
+
+        .stays-page {
+            padding: 5rem 0;
+            background: var(--bg);
+        }
+
+        .stays-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .stay-card {
+            background: #fff;
+            border-radius: var(--r-xl);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .stay-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .stay-image-box {
+            height: 260px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stay-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .stay-card:hover .stay-image-box img {
+            transform: scale(1.1);
+        }
+
+        .verified-badge {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: var(--emerald);
+            color: #fff;
+            padding: 0.4rem 1rem;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: var(--shadow-md);
+        }
+
+        .stay-content {
+            padding: 2rem;
+        }
+
+        .stay-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .stay-type {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--emerald);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stay-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .stay-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .stay-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stay-amenities {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .amenity {
+            width: 36px;
+            height: 36px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stay-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stay-price {
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+
+        .stay-price span {
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .search-bar {
+                flex-direction: column;
+                align-items: stretch;
+                border-radius: var(--r-lg);
+            }
+
+            .sb-field {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .stays-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-leaf">🌿</span>
+                <span class="logo-text">EcoKumari</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="stays.html" class="active">Eco Stays</a>
+                <a href="marketplace.html">Marketplace</a>
+                <a href="lake-tourism.html">Lake Tourism</a>
+                <a href="ai-planner.html">🤖 AI Planner</a>
+            </div>
+            <div class="nav-cta">
+                <a href="login.html" class="btn btn-ghost">Login</a>
+                <a href="signup.html" class="btn btn-hero-cta">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-badge" style="margin: 0 auto 1.5rem; width: fit-content;">⭐ Top Rated in Tamil Nadu</div>
+            <h1>The Art of<br><span class="gradient-text-light">Slow Travel</span></h1>
+            <p>Experience the soul of Kanniyakumari through our hand-picked, government-verified eco-stays and tribal
+                homestays.</p>
+
+            <div class="search-bar">
+                <div class="sb-field">
+                    <i data-lucide="map-pin"></i>
+                    <input type="text" placeholder="Destination">
+                </div>
+                <div class="sb-field">
+                    <i data-lucide="calendar"></i>
+                    <input type="text" placeholder="Check in / out" onfocus="(this.type='date')">
+                </div>
+                <div class="sb-field">
+                    <i data-lucide="users"></i>
+                    <select>
+                        <option>2 Guests</option>
+                        <option>4 Guests</option>
+                        <option>1 Guest</option>
+                    </select>
+                </div>
+                <button class="btn btn-hero-cta" style="border-radius: 12px;">Search Stays</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="stays-page">
+        <div class="container">
+            <div class="stays-grid">
+
+                <!-- Stay 1 -->
+                <div class="stay-card">
+                    <div class="stay-image-box">
+                        <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&q=80&w=800"
+                            alt="Bamboo Retreat">
+                        <div class="verified-badge">Govt Verified</div>
+                    </div>
+                    <div class="stay-content">
+                        <div class="stay-meta">
+                            <span class="stay-type">Lakeside Retreat</span>
+                            <span class="stay-rating"><i data-lucide="star"
+                                    style="fill: #fbbf24; color: #fbbf24; width:14px;"></i> 4.9</span>
+                        </div>
+                        <h3 class="stay-title">Bamboo Lakeside Cabin</h3>
+                        <div class="stay-location"><i data-lucide="map-pin" style="width:14px;"></i> Vellimalai, KK
+                        </div>
+                        <div class="stay-amenities">
+                            <div class="amenity"><i data-lucide="sun" style="width:18px;"></i></div>
+                            <div class="amenity"><i data-lucide="droplet" style="width:18px;"></i></div>
+                            <div class="amenity"><i data-lucide="leaf" style="width:18px;"></i></div>
+                        </div>
+                        <div class="stay-footer">
+                            <div class="stay-price">₹1,850 <span>/night</span></div>
+                            <a href="#" class="btn btn-hero-cta">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stay 2 -->
+                <div class="stay-card">
+                    <div class="stay-image-box">
+                        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80&w=800"
+                            alt="Tribal Homestay">
+                        <div class="verified-badge">Tribal Heritage</div>
+                    </div>
+                    <div class="stay-content">
+                        <div class="stay-meta">
+                            <span class="stay-type">Cultural Homestay</span>
+                            <span class="stay-rating"><i data-lucide="star"
+                                    style="fill: #fbbf24; color: #fbbf24; width:14px;"></i> 5.0</span>
+                        </div>
+                        <h3 class="stay-title">Kurumba Weaver's Hut</h3>
+                        <div class="stay-location"><i data-lucide="map-pin" style="width:14px;"></i> Thadiyankudisai, KK
+                        </div>
+                        <div class="stay-amenities">
+                            <div class="amenity"><i data-lucide="palette" style="width:18px;"></i></div>
+                            <div class="amenity"><i data-lucide="users" style="width:18px;"></i></div>
+                            <div class="amenity"><i data-lucide="coffee" style="width:18px;"></i></div>
+                        </div>
+                        <div class="stay-footer">
+                            <div class="stay-price">₹1,200 <span>/night</span></div>
+                            <a href="#" class="btn btn-hero-cta">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stay 3 -->
+                <div class="stay-card">
+                    <div class="stay-image-box">
+                        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800"
+                            alt="Forest Camp">
+                        <div class="verified-badge">Forest Dept.</div>
+                    </div>
+                    <div class="stay-content">
+                        <div class="stay-meta">
+                            <span class="stay-type">Eco Camp</span>
+                            <span class="stay-rating"><i data-lucide="star"
+                                    style="fill: #fbbf24; color: #fbbf24; width:14px;"></i> 4.8</span>
+                        </div>
+                        <h3 class="stay-title">Western Ghats Mist Camp</h3>
+                        <div class="stay-location"><i data-lucide="map-pin" style="width:14px;"></i> Upper Kodayar, KK
+                        </div>
+                        <div class="stay-amenities">
+                            <div class="amenity"><i data-lucide="mountain" style="width:18px;"></i></div>
+                            <div class="amenity"><i data-lucide="wind" style="width:18px;"></i></div>
+                            <div class="amenity"><i data-lucide="tent" style="width:18px;"></i></div>
+                        </div>
+                        <div class="stay-footer">
+                            <div class="stay-price">₹2,400 <span>/night</span></div>
+                            <a href="#" class="btn btn-hero-cta">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        lucide.createIcons();
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+    </script>
+</body>
+
+</html>

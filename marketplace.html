@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribal Marketplace – Authentic Artisan Products | EcoKumari</title>
+    <meta name="description"
+        content="Buy authentic handmade tribal products from Kanniyakumari artisans. Direct purchase, zero middlemen.">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .mkt-hero {
+            background: linear-gradient(135deg, hsl(20, 30%, 15%) 0%, hsl(30, 20%, 10%) 100%);
+            padding: 9rem 0 6rem;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mkt-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1511210134017-d2182098677c?auto=format&fit=crop&q=80&w=2000') center/cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .mkt-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .mkt-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .mkt-hero p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .mkt-main {
+            padding: 5rem 0;
+            background: hsl(30, 20%, 97%);
+        }
+
+        .mkt-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+        }
+
+        .sidebar-widget {
+            background: #fff;
+            border-radius: var(--r-xl);
+            padding: 2rem;
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sidebar-widget h4 {
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .cat-list {
+            list-style: none;
+        }
+
+        .cat-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.2s;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cat-link:last-child {
+            border-bottom: none;
+        }
+
+        .cat-link:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .cat-link span {
+            color: var(--muted);
+            font-size: 0.8rem;
+            font-weight: 400;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: var(--r-xl);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .p-image {
+            height: 280px;
+            position: relative;
+            background: #f1f5f9;
+            overflow: hidden;
+        }
+
+        .p-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .p-image img {
+            transform: scale(1.1);
+        }
+
+        .p-content {
+            padding: 1.5rem;
+        }
+
+        .p-artisan {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .p-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .p-trace {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .p-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .p-price {
+            font-size: 1.25rem;
+            font-weight: 900;
+        }
+
+        .cart-fab {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            width: 64px;
+            height: 64px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-xl);
+            border: none;
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .cart-fab:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        @media (max-width: 900px) {
+            .mkt-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .mkt-sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-leaf">🌿</span>
+                <span class="logo-text">EcoKumari</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="stays.html">Eco Stays</a>
+                <a href="marketplace.html" class="active">Marketplace</a>
+                <a href="lake-tourism.html">Lake Tourism</a>
+                <a href="ai-planner.html">🤖 AI Planner</a>
+            </div>
+            <div class="nav-cta">
+                <a href="login.html" class="btn btn-ghost">Login</a>
+                <a href="signup.html" class="btn btn-hero-cta">Open Shop</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="mkt-hero">
+        <div class="container">
+            <div class="hero-badge"
+                style="margin: 0 auto 1.5rem; width: fit-content; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2);">
+                📦 Worldwide Eco-Shipping</div>
+            <h1>Soul of the<br><span class="gradient-text-light">Western Ghats</span></h1>
+            <p>Every piece is a heritage. Every purchase supports a lineage. Buy authentic tribal artifacts directly
+                from the makers of Kanniyakumari.</p>
+        </div>
+    </section>
+
+    <section class="mkt-main">
+        <div class="container">
+            <div class="mkt-layout">
+                <aside class="mkt-sidebar">
+                    <div class="sidebar-widget">
+                        <h4>Categories</h4>
+                        <div class="cat-list">
+                            <div class="cat-link">Hand-Woven Baskets <span>12</span></div>
+                            <div class="cat-link">Clay Pottery <span>8</span></div>
+                            <div class="cat-link">Tribal Textiles <span>15</span></div>
+                            <div class="cat-link">Natural Honey <span>4</span></div>
+                            <div class="cat-link">Coconut Art <span>9</span></div>
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="mkt-content">
+                    <div class="products-grid">
+
+                        <!-- Product 1 -->
+                        <div class="product-card">
+                            <div class="p-image">
+                                <img src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&q=80&w=800"
+                                    alt="Basket">
+                            </div>
+                            <div class="p-content">
+                                <div class="p-artisan">By Kavitha · Muttom</div>
+                                <h3 class="p-title">Kora Grass Storage Basket</h3>
+                                <div class="p-trace"><i data-lucide="shield-check"
+                                        style="width:14px; color: var(--emerald);"></i> Heritage Traceable Product</div>
+                                <div class="p-footer">
+                                    <div class="p-price">₹850</div>
+                                    <button class="btn btn-hero-cta"
+                                        style="padding: 0.6rem 1.2rem; font-size: 0.8rem;">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="product-card">
+                            <div class="p-image">
+                                <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&q=80&w=800"
+                                    alt="Pottery">
+                            </div>
+                            <div class="p-content">
+                                <div class="p-artisan">By Rajan · Colachel</div>
+                                <h3 class="p-title">Terra Cotta Earth Set</h3>
+                                <div class="p-trace"><i data-lucide="shield-check"
+                                        style="width:14px; color: var(--emerald);"></i> Heritage Traceable Product</div>
+                                <div class="p-footer">
+                                    <div class="p-price">₹1,200</div>
+                                    <button class="btn btn-hero-cta"
+                                        style="padding: 0.6rem 1.2rem; font-size: 0.8rem;">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="product-card">
+                            <div class="p-image">
+                                <img src="https://images.unsplash.com/photo-1610484826967-09c5720778c7?auto=format&fit=crop&q=80&w=800"
+                                    alt="Honey">
+                            </div>
+                            <div class="p-content">
+                                <div class="p-artisan">By Selvam · Forest Reserve</div>
+                                <h3 class="p-title">Wild Forest Rock Honey</h3>
+                                <div class="p-trace"><i data-lucide="shield-check"
+                                        style="width:14px; color: var(--emerald);"></i> Heritage Traceable Product</div>
+                                <div class="p-footer">
+                                    <div class="p-price">₹450</div>
+                                    <button class="btn btn-hero-cta"
+                                        style="padding: 0.6rem 1.2rem; font-size: 0.8rem;">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <button class="cart-fab">
+        <i data-lucide="shopping-bag"></i>
+    </button>
+
+    <script>
+        lucide.createIcons();
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+    </script>
+</body>
+
+</html>

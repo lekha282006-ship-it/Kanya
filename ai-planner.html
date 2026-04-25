@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Itinerary Planner – Smart Trip Planner | EcoKumari</title>
+    <meta name="description"
+        content="Tell EcoKumari AI your travel dates, budget, and interests — get a verified, personalized day-by-day eco-tourism itinerary for Kanniyakumari.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .ai-hero {
+            background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 50%, #064e3b 100%);
+            padding: 5rem 0 4rem;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden
+        }
+
+        .ai-hero::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            right: -120px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(99, 102, 241, .3), transparent 70%);
+            pointer-events: none
+        }
+
+        .ai-hero h1 {
+            font-size: clamp(2rem, 3.5vw, 2.9rem);
+            font-weight: 900;
+            margin-bottom: .75rem;
+            position: relative;
+            z-index: 2
+        }
+
+        .ai-hero p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, .7);
+            max-width: 560px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2
+        }
+
+        .ai-main {
+            background: var(--bg);
+            padding: 4rem 0 6rem
+        }
+
+        .ai-layout {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 2.5rem;
+            align-items: start
+        }
+
+        .ai-form-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--r-xl);
+            padding: 2rem;
+            position: sticky;
+            top: 90px
+        }
+
+        .ai-form-card h3 {
+            font-size: 1.1rem;
+            font-weight: 900;
+            margin-bottom: .25rem
+        }
+
+        .ai-form-card .sub {
+            font-size: .82rem;
+            color: var(--muted);
+            margin-bottom: 1.5rem
+        }
+
+        .fg {
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+            margin-bottom: 1rem
+        }
+
+        .fg label {
+            font-size: .72rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            color: var(--text)
+        }
+
+        .fg input,
+        .fg select,
+        .fg textarea {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: .7rem 1rem;
+            font-size: .88rem;
+            font-family: inherit;
+            outline: none;
+            transition: border .2s;
+            width: 100%;
+            box-sizing: border-box
+        }
+
+        .fg input:focus,
+        .fg select:focus,
+        .fg textarea:focus {
+            border-color: var(--primary)
+        }
+
+        .fg textarea {
+            resize: vertical;
+            min-height: 68px
+        }
+
+        .frow {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem
+        }
+
+        .interest-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem;
+            margin-top: .35rem
+        }
+
+        .ichip {
+            background: var(--bg);
+            border: 1.5px solid var(--border);
+            padding: .35rem .85rem;
+            border-radius: 99px;
+            font-size: .78rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all .15s;
+            color: var(--text)
+        }
+
+        .ichip.selected {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff
+        }
+
+        .gen-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary), #7c3aed);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-weight: 900;
+            font-size: .95rem;
+            cursor: pointer;
+            margin-top: .5rem;
+            transition: all .2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem
+        }
+
+        .gen-btn:hover {
+            opacity: .9;
+            transform: translateY(-1px)
+        }
+
+        .gen-btn:disabled {
+            opacity: .5;
+            cursor: not-allowed
+        }
+
+        .result-area {
+            min-height: 400px
+        }
+
+        .empty-state {
+            background: #fff;
+            border: 2px dashed var(--border);
+            border-radius: var(--r-xl);
+            padding: 5rem 2rem;
+            text-align: center
+        }
+
+        .empty-state .eicon {
+            font-size: 4rem;
+            margin-bottom: 1rem
+        }
+
+        .empty-state h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: .5rem
+        }
+
+        .empty-state p {
+            font-size: .9rem;
+            color: var(--muted);
+            max-width: 400px;
+            margin: 0 auto;
+            line-height: 1.6
+        }
+
+        .loading-state {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--r-xl);
+            padding: 4rem 2rem;
+            text-align: center;
+            display: none
+        }
+
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin .8s linear infinite;
+            margin: 0 auto 1.5rem
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .loading-state h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: .3rem
+        }
+
+        .loading-state p {
+            font-size: .85rem;
+            color: var(--muted)
+        }
+
+        .itinerary {
+            display: none
+        }
+
+        .itin-header {
+            background: linear-gradient(135deg, #0f172a, #1e1b4b);
+            border-radius: var(--r-xl) var(--r-xl) 0 0;
+            padding: 2rem;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem
+        }
+
+        .itin-header h2 {
+            font-size: 1.3rem;
+            font-weight: 900
+        }
+
+        .itin-header .ih-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap
+        }
+
+        .ih-pill {
+            font-size: .78rem;
+            font-weight: 700;
+            background: rgba(255, 255, 255, .1);
+            padding: .35rem .85rem;
+            border-radius: 99px;
+            color: rgba(255, 255, 255, .8)
+        }
+
+        .itin-body {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 var(--r-xl) var(--r-xl);
+            padding: 0
+        }
+
+        .day-block {
+            border-bottom: 1px solid var(--border);
+            padding: 2rem
+        }
+
+        .day-block:last-child {
+            border-bottom: none
+        }
+
+        .day-label {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: .75rem;
+            font-weight: 900;
+            padding: .3rem .85rem;
+            border-radius: 99px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: .04em
+        }
+
+        .day-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 1rem
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+            padding-left: 2rem
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: var(--border)
+        }
+
+        .tl-item {
+            display: flex;
+            gap: 1rem;
+            position: relative;
+            padding-bottom: 1.5rem
+        }
+
+        .tl-item:last-child {
+            padding-bottom: 0
+        }
+
+        .tl-dot {
+            position: absolute;
+            left: -2rem;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            background: #fff;
+            z-index: 2;
+            flex-shrink: 0
+        }
+
+        .tl-dot.eco {
+            border-color: var(--green)
+        }
+
+        .tl-dot.food {
+            border-color: var(--amber)
+        }
+
+        .tl-dot.stay {
+            border-color: var(--teal)
+        }
+
+        .tl-content {
+            flex: 1
+        }
+
+        .tl-time {
+            font-size: .72rem;
+            font-weight: 800;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            margin-bottom: .2rem
+        }
+
+        .tl-name {
+            font-size: .92rem;
+            font-weight: 800;
+            margin-bottom: .25rem
+        }
+
+        .tl-desc {
+            font-size: .82rem;
+            color: var(--muted);
+            line-height: 1.6
+        }
+
+        .tl-tags {
+            display: flex;
+            gap: .35rem;
+            flex-wrap: wrap;
+            margin-top: .5rem
+        }
+
+        .tl-tag {
+            font-size: .68rem;
+            font-weight: 700;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 2px 8px;
+            border-radius: 99px;
+            color: var(--muted)
+        }
+
+        .tl-tag.eco-tag {
+            background: var(--green-light);
+            border-color: var(--green);
+            color: var(--green-dark)
+        }
+
+        .day-cost {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 1rem;
+            font-size: .85rem;
+            font-weight: 800;
+            color: var(--primary)
+        }
+
+        .itin-footer {
+            background: var(--green-light);
+            border-radius: var(--r-lg);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem
+        }
+
+        .if-total {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: var(--green-dark)
+        }
+
+        .if-total small {
+            font-size: .82rem;
+            font-weight: 700;
+            color: var(--muted);
+            display: block
+        }
+
+        .if-actions {
+            display: flex;
+            gap: .75rem
+        }
+
+        .btn-book-all {
+            background: var(--green);
+            color: #fff;
+            border: none;
+            padding: .7rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: .85rem;
+            cursor: pointer;
+            transition: all .2s
+        }
+
+        .btn-book-all:hover {
+            background: var(--green-dark)
+        }
+
+        .btn-share {
+            background: #fff;
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: .7rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: .85rem;
+            cursor: pointer;
+            transition: all .2s
+        }
+
+        .btn-share:hover {
+            background: var(--bg)
+        }
+
+        .seasonal-tip {
+            background: linear-gradient(135deg, #fef3c7, #fffbeb);
+            border: 1px solid #fde68a;
+            border-radius: var(--r-lg);
+            padding: 1.25rem;
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start
+        }
+
+        .seasonal-tip .st-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0
+        }
+
+        .seasonal-tip h4 {
+            font-size: .88rem;
+            font-weight: 800;
+            margin-bottom: .25rem;
+            color: #92400e
+        }
+
+        .seasonal-tip p {
+            font-size: .82rem;
+            color: #78350f;
+            line-height: 1.6
+        }
+
+        @media(max-width:900px) {
+            .ai-layout {
+                grid-template-columns: 1fr
+            }
+
+            .ai-form-card {
+                position: static
+            }
+        }
+
+        @media(max-width:600px) {
+            .frow {
+                grid-template-columns: 1fr
+            }
+
+            .itin-header {
+                flex-direction: column;
+                align-items: flex-start
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo"><span class="logo-leaf">🌿</span><span
+                    class="logo-text">EcoKumari</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="stays.html">Eco Stays</a>
+                <a href="marketplace.html">Marketplace</a>
+                <a href="lake-tourism.html">Lake Tourism</a>
+                <a href="ai-planner.html" class="active">🤖 AI Planner</a>
+                <a href="pricing.html">Pricing</a>
+            </div>
+            <div class="nav-cta">
+                <a href="login.html" class="btn btn-ghost">Login</a>
+                <a href="signup.html" class="btn btn-hero-cta">Sign Up Free</a>
+            </div>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <section class="ai-hero">
+        <div class="container">
+            <div class="section-tag light">🤖 AI-Powered Planner</div>
+            <h1>Plan Your Perfect<br><span class="gradient-text">Eco-Trip to Kanniyakumari</span></h1>
+            <p>Tell us your dates, budget, and interests — our AI creates a verified, sustainable day-by-day itinerary
+                with real bookable experiences.</p>
+        </div>
+    </section>
+
+    <section class="ai-main">
+        <div class="container">
+            <div class="ai-layout">
+
+                <!-- Form Sidebar -->
+                <div class="ai-form-card">
+                    <h3>🗺️ Trip Preferences</h3>
+                    <p class="sub">Fill in your details and let AI plan the perfect trip.</p>
+
+                    <div class="frow">
+                        <div class="fg"><label>Arrival Date</label><input type="date" id="arrDate"></div>
+                        <div class="fg"><label>Departure Date</label><input type="date" id="depDate"></div>
+                    </div>
+                    <div class="frow">
+                        <div class="fg"><label>Travelers</label>
+                            <select id="travelers">
+                                <option>1 Person</option>
+                                <option>2 People</option>
+                                <option selected>3–4 People</option>
+                                <option>5+ Group</option>
+                            </select>
+                        </div>
+                        <div class="fg"><label>Budget (per person)</label>
+                            <select id="budget">
+                                <option>₹2,000 – ₹5,000</option>
+                                <option selected>₹5,000 – ₹10,000</option>
+                                <option>₹10,000 – ₹20,000</option>
+                                <option>₹20,000+</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="fg">
+                        <label>Your Interests (select multiple)</label>
+                        <div class="interest-chips" id="interestChips">
+                            <span class="ichip selected" data-v="lake">🌊 Lake Tourism</span>
+                            <span class="ichip" data-v="tribal">🏺 Tribal Culture</span>
+                            <span class="ichip selected" data-v="nature">🌿 Nature & Wildlife</span>
+                            <span class="ichip" data-v="beach">🏖️ Beach & Sunrise</span>
+                            <span class="ichip" data-v="food">🍛 Local Food</span>
+                            <span class="ichip" data-v="temple">🛕 Heritage & Temples</span>
+                            <span class="ichip" data-v="photo">📸 Photography</span>
+                            <span class="ichip" data-v="adventure">🥾 Adventure</span>
+                        </div>
+                    </div>
+                    <div class="fg"><label>Special Requirements</label><textarea id="special"
+                            placeholder="E.g. wheelchair access, vegetarian meals, prefer early mornings..."
+                            rows="2"></textarea></div>
+                    <button class="gen-btn" id="genBtn" onclick="generateItinerary()">
+                        <i data-lucide="sparkles" style="width:18px;height:18px"></i> Generate AI Itinerary
+                    </button>
+                </div>
+
+                <!-- Result Area -->
+                <div class="result-area">
+                    <div class="empty-state" id="emptyState">
+                        <div class="eicon">🗺️</div>
+                        <h3>Your AI Itinerary Will Appear Here</h3>
+                        <p>Fill in your preferences on the left and click "Generate AI Itinerary" to get a personalized,
+                            day-by-day plan.</p>
+                    </div>
+
+                    <div class="loading-state" id="loadingState">
+                        <div class="spinner"></div>
+                        <h3>AI is planning your trip...</h3>
+                        <p>Analyzing verified stays, seasonal activities, and local events.</p>
+                    </div>
+
+                    <div class="itinerary" id="itinerary">
+                        <div class="itin-header">
+                            <div>
+                                <h2>🌿 Your Eco Itinerary</h2>
+                                <p style="font-size:.82rem;color:rgba(255,255,255,.6);margin-top:.25rem;">AI-generated ·
+                                    All experiences are verified & bookable</p>
+                            </div>
+                            <div class="ih-meta">
+                                <span class="ih-pill" id="ihDays">📅 3 Days</span>
+                                <span class="ih-pill" id="ihBudget">💰 ₹5,000–₹10,000</span>
+                                <span class="ih-pill" id="ihGroup">👥 3–4 People</span>
+                            </div>
+                        </div>
+
+                        <div class="itin-body" id="itinBody">
+                            <!-- Day blocks generated by JS -->
+                        </div>
+
+                        <div class="seasonal-tip" id="seasonalTip">
+                            <span class="st-icon">🌦️</span>
+                            <div>
+                                <h4>Seasonal AI Tip</h4>
+                                <p id="tipText">February is peak season for migratory birds at Vellimalai Lake. We've
+                                    included a bird-watching slot in your itinerary for the best sightings! Bring
+                                    binoculars 🦅</p>
+                            </div>
+                        </div>
+
+                        <div class="itin-footer">
+                            <div class="if-total">
+                                <small>Estimated Total (per person)</small>
+                                <span id="totalCost">₹7,850</span>
+                            </div>
+                            <div class="if-actions">
+                                <button class="btn-share" onclick="alert('📋 Itinerary link copied to clipboard!')">📋
+                                    Share Itinerary</button>
+                                <button class="btn-book-all"
+                                    onclick="alert('✅ All 3 days booked! SMS confirmation will be sent shortly.')">🔒
+                                    Book Entire Trip</button>
+                            </div>
+                        </div>
+
+                    </div><!-- /itinerary -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom-bar">
+                <p>© 2026 EcoKumari · <a href="index.html" style="color:#86efac">Back to Home</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Interest chips toggle
+        document.querySelectorAll('.ichip').forEach(chip => {
+            chip.addEventListener('click', () => chip.classList.toggle('selected'));
+        });
+
+        // Itinerary data
+        const itineraryData = [
+            {
+                day: 1,
+                title: "Arrival & Lake Discovery",
+                items: [
+                    { time: "08:00 AM", name: "Arrive in Kanniyakumari", desc: "Check-in at Bamboo Lakeside Retreat — eco-certified homestay by Vellimalai Lake. Welcome drink with organic palm juice.", type: "stay", tags: ["✅ Eco Certified", "🌿 Zero Waste"] },
+                    { time: "10:30 AM", name: "Coracle Ride at Pechiparai Reservoir", desc: "Traditional round boat ride guided by local fisherman Ravi Kumaran (14 yrs experience). Spot kingfishers and otters.", type: "eco", tags: ["🚣 45 min", "📍 Pechiparai", "₹350/person"] },
+                    { time: "01:00 PM", name: "Tribal Lunch Experience", desc: "Authentic Kani tribal meal cooked by local women's self-help group. Ragi roti, fish curry, and wild honey dessert.", type: "food", tags: ["🍛 Tribal Cuisine", "🌿 Organic", "100% Local"] },
+                    { time: "03:00 PM", name: "Tribal Marketplace Visit", desc: "Visit artisan workshops in Muttom Village. Meet Kavitha (basket weaver) and Rajan (potter). Exclusive shopping opportunity.", type: "eco", tags: ["🧺 Live Demo", "🏺 Pottery", "📍 Muttom"] },
+                    { time: "06:00 PM", name: "Sunset at Kanyakumari Cape", desc: "Watch the famous three-sea confluence sunset. Optional meditation session at the Thiruvalluvar Statue viewpoint.", type: "eco", tags: ["🌅 Sunset", "📸 Photo Spot"] },
+                ],
+                cost: "₹2,450"
+            },
+            {
+                day: 2,
+                title: "Nature & Community Immersion",
+                items: [
+                    { time: "05:30 AM", name: "Sunrise Kayaking at Chittar Dam", desc: "Paddle through misty backwaters as the sun rises. Guide Preethi spots wildlife and explains the wetland ecosystem.", type: "eco", tags: ["🌅 2 hrs", "📍 Chittar", "₹600/person"] },
+                    { time: "09:00 AM", name: "Bird Watching Trail", desc: "Guided birding walk at Vellimalai Lake Reserve. Feb brings flamingos, painted storks, and rare Irrawaddy dolphins.", type: "eco", tags: ["🦅 180+ species", "📸 Photography", "₹400/person"] },
+                    { time: "12:30 PM", name: "Farm-to-Table Lunch", desc: "Cook-along experience at Kurumba Village Retreat. Learn traditional recipes using ingredients from their organic farm.", type: "food", tags: ["🍳 Hands-on", "🌿 Organic Farm", "📍 Thengapattinam"] },
+                    { time: "03:00 PM", name: "Wetland Conservation Walk", desc: "Plant a mangrove seedling and learn about EcoKumari's lake conservation program with expert Annamalai.", type: "eco", tags: ["🌿 Conservation", "♻️ Plant a Tree", "₹250/person"] },
+                    { time: "06:30 PM", name: "Bonfire & Folk Music Evening", desc: "Tribal folk music performance at the eco camp. Stories of Kanniyakumari's forests shared over local chai.", type: "eco", tags: ["🎵 Live Music", "🔥 Bonfire"] },
+                ],
+                cost: "₹3,100"
+            },
+            {
+                day: 3,
+                title: "Heritage & Departure",
+                items: [
+                    { time: "07:00 AM", name: "Yoga by the Lake", desc: "Open-air yoga session overlooking the reservoir. Led by local instructor from the tribal wellness co-operative.", type: "eco", tags: ["🧘 1 hr", "🌿 Wellness"] },
+                    { time: "09:30 AM", name: "Padmanabhapuram Palace Visit", desc: "Full tour of this 500-year-old wooden palace. One of the finest examples of traditional Kerala architecture.", type: "eco", tags: ["🛕 Heritage", "📍 35km from KK", "₹50 entry"] },
+                    { time: "12:00 PM", name: "Coastal Seafood Lunch", desc: "Fresh catch-of-the-day at a verified local restaurant in Colachel. Traditional banana-leaf meal by the sea.", type: "food", tags: ["🐟 Seafood", "🌊 Oceanview", "📍 Colachel"] },
+                    { time: "02:00 PM", name: "Final Marketplace Shopping", desc: "Pick up pre-ordered tribal products. Handloom sarees, coconut shell crafts, and organic honey packed for travel.", type: "eco", tags: ["🛍️ Shopping", "📦 Travel Packed"] },
+                    { time: "04:00 PM", name: "Departure with Impact Report", desc: "Receive your eco-impact certificate: trees planted, artisans supported, and conservation fund contribution summary.", type: "stay", tags: ["📊 Impact Report", "💚 Certificate"] },
+                ],
+                cost: "₹2,300"
+            }
+        ];
+
+        function generateItinerary() {
+            const btn = document.getElementById('genBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<div class="spinner" style="width:20px;height:20px;border-width:2px;margin:0"></div> Generating...';
+            document.getElementById('emptyState').style.display = 'none';
+            document.getElementById('loadingState').style.display = 'block';
+            document.getElementById('itinerary').style.display = 'none';
+
+            // Simulate AI processing
+            setTimeout(() => {
+                document.getElementById('loadingState').style.display = 'none';
+                document.getElementById('itinerary').style.display = 'block';
+
+                // Build timeline
+                let html = '';
+                itineraryData.forEach(day => {
+                    html += `<div class="day-block">
+            <div class="day-label">📅 Day ${day.day}</div>
+            <div class="day-title">${day.title}</div>
+            <div class="timeline">`;
+                    day.items.forEach(item => {
+                        const tagHtml = item.tags.map(t => `<span class="tl-tag${t.includes('Eco') || t.includes('🌿') || t.includes('Conservation') ? ' eco-tag' : ''}">${t}</span>`).join('');
+                        html += `<div class="tl-item">
+              <div class="tl-dot ${item.type}"></div>
+              <div class="tl-content">
+                <div class="tl-time">${item.time}</div>
+                <div class="tl-name">${item.name}</div>
+                <div class="tl-desc">${item.desc}</div>
+                <div class="tl-tags">${tagHtml}</div>
+              </div>
+            </div>`;
+                    });
+                    html += `</div><div class="day-cost">Day estimate: ${day.cost}</div></div>`;
+                });
+                document.getElementById('itinBody').innerHTML = html;
+
+                // Seasonal tips based on month
+                const month = new Date().getMonth();
+                const tips = [
+                    "January–February is peak bird migration season. We've added bird-watching at Vellimalai Lake! 🦅",
+                    "March–April is ideal for beach experiences. Sunrise at Kanyakumari Cape is unmissable! 🌅",
+                    "During monsoon (Jun–Aug), indoor tribal workshops and heritage visits are prioritized. 🏺",
+                    "October–November is harvest season. We've included farm-to-table experiences! 🌾",
+                    "December holiday season — book early! We've added festive tribal performances. 🎵"
+                ];
+                const tipIdx = month <= 1 ? 0 : month <= 3 ? 1 : month <= 7 ? 2 : month <= 10 ? 3 : 4;
+                document.getElementById('tipText').textContent = tips[tipIdx];
+
+                btn.disabled = false;
+                btn.innerHTML = '<i data-lucide="sparkles" style="width:18px;height:18px"></i> Regenerate Itinerary';
+                lucide.createIcons();
+
+                // Smooth scroll to result
+                document.getElementById('itinerary').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 2500);
+        }
+    </script>
+</body>
+
+</html>
